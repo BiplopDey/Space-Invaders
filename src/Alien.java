@@ -42,7 +42,7 @@ public class Alien extends Element {
 		if (isLive) {
 			if (type == type1) {
 				if (typeMovimiento) {
-					g.drawImage(Window.type1abierto, x, y, width, height, null);
+					g.drawImage(Window.type1open, x, y, width, height, null);
 				} else {
 					g.drawImage(Window.type1cerrado, x, y, width, height, null);
 				}
@@ -50,13 +50,13 @@ public class Alien extends Element {
 
 			else if (type == type2) {
 				if (typeMovimiento) {
-					g.drawImage(Window.type2abierto, x, y, width, height, null);
+					g.drawImage(Window.type2open, x, y, width, height, null);
 				} else {
 					g.drawImage(Window.type2cerrado, x, y, width, height, null);
 				}
 			} else if (type == type3) {
 				if (typeMovimiento) {
-					g.drawImage(Window.type3abierto, x, y, width, height, null);
+					g.drawImage(Window.type3open, x, y, width, height, null);
 				} else {
 					g.drawImage(Window.type3cerrado, x, y, width, height, null);
 				}
