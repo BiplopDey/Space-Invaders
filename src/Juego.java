@@ -19,7 +19,7 @@ public class Juego {
 	int numberUfo = 30;
 	int estado = 1;
 	Window window;
-	Nave miNave;
+	Ship miNave;
 	Wave wave;
 	Ufo ufo;
 	Wall muros;
@@ -148,7 +148,7 @@ public class Juego {
 	void inicialitzacio() {
 		ufo = new Ufo(Window.ANCHO, 50, velocidadOvni, 50, 20);
 		wave = new Wave(100, numberUfo, velocidadOleadaInicial, 40, 30);
-		miNave = new Nave((int) (Window.ANCHO / 2), Window.ALTO - 70, velocidadNave, 50, 20);
+		miNave = new Ship((int) (Window.ANCHO / 2), Window.ALTO - 70, velocidadNave, 50, 20);
 		muros = new Wall(50, 400, 0, 20, 20);
 	}
 
