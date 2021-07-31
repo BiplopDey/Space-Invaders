@@ -40,8 +40,8 @@ public class Window extends Frame implements WindowListener, KeyListener {
 		setResizable(false);
 
 		hiScore = getHiScoreFromTxt();
-		cargarSonidos();
-		cargarImagenes();
+		loadSounds();
+		loadImages();
 		addWindowListener(this);
 		addKeyListener(this);
 
@@ -81,7 +81,7 @@ public class Window extends Frame implements WindowListener, KeyListener {
 		paint(g);
 	}
 
-	void cargarSonidos() {
+	void loadSounds() {
 		try {
 			AudioInputStream audioInShoot = AudioSystem.getAudioInputStream(new File("shoot.wav"));
 			shoot = AudioSystem.getClip();
@@ -95,7 +95,7 @@ public class Window extends Frame implements WindowListener, KeyListener {
 		}
 	}
 
-	void cargarImagenes() {
+	void loadImages() {
 		try {
 			start = ImageIO.read(new File("ImagenInicio.png"));
 			ship = ImageIO.read(new File("ship.png"));
