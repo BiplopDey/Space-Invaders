@@ -30,7 +30,7 @@ public class Ship extends Element {
 		for (int i = 0; i < lives - 1; i++) {
 			drawShip(g, width * i + i * 10 + 50, Window.HEIGHT - height - 10);
 		}
-		drawVida(g);
+		drawLife(g);
 		if (!isLive) {
 			g.drawImage(Window.shipExplotado, x, y, width, height, null);
 		}
@@ -44,7 +44,7 @@ public class Ship extends Element {
 		g.drawImage(Window.ship, x, y, width, height, null);
 	}
 
-	void drawVida(Graphics g) {
+	void drawLife(Graphics g) {
 		g.setColor(Color.WHITE);
 		g.setFont(new Font("Serif", Font.PLAIN, 26));
 		g.drawString("" + lives, 10, Window.HEIGHT - 20);

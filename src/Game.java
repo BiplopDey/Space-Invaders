@@ -87,7 +87,7 @@ public class Game {
 		numberUfo += 50;
 		inicialitzacio();
 		miShip.points = points;
-		miShip.setVidas(lives);
+		miShip.setLives(lives);
 		try {
 			Thread.sleep(1500);
 		} catch (InterruptedException e) {
@@ -166,7 +166,7 @@ public class Game {
 				if (wave.aliens[j].isLive && miBala.intersects(wave.aliens[j])) {
 					wave.aliens[j].isLive = false;
 					// wave.muertos++;
-					wave.restarVida();
+					wave.restarLife();
 					miShip.sumarPuntos(wave.aliens[j].points);
 					miBala.isLive = false;
 					Window.crash.start();
@@ -196,14 +196,14 @@ public class Game {
 			bulletsVsMuros(alienBala);
 
 			if (alienBala.intersects(miShip)) {
-				miShip.restarVida();
+				miShip.restarLife();
 				alienBala.isLive = false;
 			}
 
 			if (alienBala.y < Window.HEIGHT)
 				for (int j = 0; j < muros.dimLinea; j++) {// vs Lineas de abajo
 					if (muros.lineaAbajo[j].isLive && alienBala.intersects(muros.lineaAbajo[j])) {
-						muros.lineaAbajo[j].restarVida();
+						muros.lineaAbajo[j].restarLife();
 						alienBala.isLive = false;
 						break;
 					}
@@ -215,7 +215,7 @@ public class Game {
 	void bulletsVsMuros(Bullet bullet) {
 		for (int j = 0; j < muros.dim; j++) {
 			if (muros.brick[j].isLive && bullet.intersects(muros.brick[j])) {
-				muros.brick[j].restarVida();
+				muros.brick[j].restarLife();
 				bullet.isLive = false;
 				break;
 			}

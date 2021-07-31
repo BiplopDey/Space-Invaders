@@ -16,18 +16,18 @@ abstract class Element extends Rectangle {
 
 	}
 
-	void restarVida() {
+	void restarLife() {
 		lives--;
 		if (lives == 0) {
 			isLive = false;
 		}
 	}
 
-	int getVidas() {
+	int getLives() {
 		return lives;
 	}
 
-	void setVidas(int lives) {
+	void setLives(int lives) {
 		this.lives = lives;
 	}
 
