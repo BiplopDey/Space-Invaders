@@ -153,9 +153,9 @@ public class Game {
 	}
 
 	void ferMoviments() {
-		ufo.mover(-1);
-		miNave.moverNave();
-		wave.mover(0);
+		ufo.move(-1);
+		miNave.moveNave();
+		wave.move(0);
 	}
 
 	void detectarXocs() {

@@ -14,7 +14,7 @@ public class Ufo extends Element {
 	}
 
 	@Override
-	void mover(int sign) {
+	void move(int sign) {
 		if (UfoCount > Game.frecuenciaOvni) {
 			isLive = true;
 			x = Window.ANCHO;

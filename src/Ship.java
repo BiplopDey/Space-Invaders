@@ -14,7 +14,7 @@ public class Ship extends Element {
 	}
 
 	@Override
-	void mover(int sign) {
+	void move(int sign) {
 		x += sign * velocidad;
 		limites();
 	}
@@ -55,7 +55,7 @@ public class Ship extends Element {
 		bullets.add(new Bullet(x + (int) (width * 0.5), y, Game.velocidadBala, 2, 20));
 	}
 
-	void moverBalas() {
+	void moveBalas() {
 		if (Window.isClickedSpace && bulletsCount > Game.frecuenciaDisparoNave) {
 			dispara();
 			bulletsCount = 0;
@@ -64,21 +64,21 @@ public class Ship extends Element {
 		bulletsCount %= 100;// para no tener numero grandes, cuando no dispara
 
 		for (int i = 0; i < bullets.size(); i++) {
-			bullets.get(i).mover(-1);
+			bullets.get(i).move(-1);
 			if (bullets.get(i).y < 30 || bullets.get(i).isLive == false) {
 				bullets.remove(i);
 			}
 		}
 	}
 
-	void moverNave() {
+	void moveNave() {
 		if (Window.isClickedLeft) {
-			mover(-1);
+			move(-1);
 		}
 		if (Window.isClickedRight) {
-			mover(+1);
+			move(+1);
 		}
-		moverBalas();
+		moveBalas();
 	}
 
 }

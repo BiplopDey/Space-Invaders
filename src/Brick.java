@@ -11,7 +11,7 @@ public class Brick extends Element {
 	}
 
 	@Override
-	void mover(int sign) {
+	void move(int sign) {
 		// TODO Auto-generated method stub
 	}
 

@@ -49,7 +49,7 @@ public class Wave extends Element {
 	}
 
 	@Override
-	void mover(int dy) {// dy=0 siempre
+	void move(int dy) {// dy=0 siempre
 		if (alienExtremoDerecho() >= Window.ANCHO - width) {
 			sign = -1;
 			dy = height;
@@ -60,12 +60,12 @@ public class Wave extends Element {
 
 		if (saltosCount >= intervaloSaltos) {
 			for (int i = 0; i < dim; i++) {
-				aliens[i].mover(sign * velocidad);
+				aliens[i].move(sign * velocidad);
 			}
 
 			if (dy != 0)
 				for (int i = 0; i < dim; i++)
-					aliens[i].moverVertical(dy);
+					aliens[i].moveVertical(dy);
 
 			saltosCount = 0;
 		}
@@ -84,8 +84,8 @@ public class Wave extends Element {
 			intervaloSaltos = 4;
 		}
 
-		// mover bullets
-		moverBalas();
+		// move bullets
+		moveBalas();
 	}
 
 	int alienExtremoDerecho() {// devuelve la posicion del alien vivo que esta al extremo derecho
@@ -151,7 +151,7 @@ public class Wave extends Element {
 		return vivo;
 	}
 
-	void moverBalas() {
+	void moveBalas() {
 		if (bulletsCount > Game.frecuenciaDisparoOleada && isLive) {
 			this.dispara();
 			bulletsCount = 0;
@@ -159,7 +159,7 @@ public class Wave extends Element {
 		bulletsCount++;
 
 		for (int i = 0; i < bullets.size(); i++) {
-			bullets.get(i).mover(+1);
+			bullets.get(i).move(+1);
 			if (bullets.get(i).y > Window.ALTO || bullets.get(i).isLive == false) {
 				bullets.remove(i);
 			}
