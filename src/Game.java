@@ -222,7 +222,7 @@ public class Game {
 		}
 	}
 
-	void dibujarScore(Graphics g) {
+	void drawScore(Graphics g) {
 		g.setColor(Color.WHITE);
 		g.setFont(new Font("Serif", Font.PLAIN, 26));
 		g.drawString("SCORE: " + miShip.points, 10, 50);
@@ -234,7 +234,7 @@ public class Game {
 		window.g.setColor(Color.BLACK);
 		window.g.fillRect(0, 0, Window.WIDTH, Window.HEIGHT);
 		// pintem
-		dibujarScore(window.g);
+		drawScore(window.g);
 		miShip.pinta(window.g);
 		wave.pinta(window.g);
 		ufo.pinta(window.g);

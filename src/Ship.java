@@ -25,12 +25,12 @@ public class Ship extends Element {
 
 	@Override
 	void pinta(Graphics g) {
-		dibujarShip(g, x, y);
+		drawShip(g, x, y);
 
 		for (int i = 0; i < lives - 1; i++) {
-			dibujarShip(g, width * i + i * 10 + 50, Window.HEIGHT - height - 10);
+			drawShip(g, width * i + i * 10 + 50, Window.HEIGHT - height - 10);
 		}
-		dibujarVida(g);
+		drawVida(g);
 		if (!isLive) {
 			g.drawImage(Window.shipExplotado, x, y, width, height, null);
 		}
@@ -40,11 +40,11 @@ public class Ship extends Element {
 		}
 	}
 
-	void dibujarShip(Graphics g, int x, int y) {
+	void drawShip(Graphics g, int x, int y) {
 		g.drawImage(Window.ship, x, y, width, height, null);
 	}
 
-	void dibujarVida(Graphics g) {
+	void drawVida(Graphics g) {
 		g.setColor(Color.WHITE);
 		g.setFont(new Font("Serif", Font.PLAIN, 26));
 		g.drawString("" + lives, 10, Window.HEIGHT - 20);
