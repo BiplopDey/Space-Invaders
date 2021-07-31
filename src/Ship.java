@@ -9,7 +9,7 @@ public class Ship extends Element {
 	Ship(int x, int y, int v, int width, int height) {
 		super(x, y, v, width, height);
 		balasCount = 0;
-		vidas = 4;
+		lives = 4;
 		puntos = 0;
 	}
 
@@ -27,7 +27,7 @@ public class Ship extends Element {
 	void pinta(Graphics g) {
 		dibujarNave(g, x, y);
 
-		for (int i = 0; i < vidas - 1; i++) {
+		for (int i = 0; i < lives - 1; i++) {
 			dibujarNave(g, width * i + i * 10 + 50, Window.ALTO - height - 10);
 		}
 		dibujarVida(g);
@@ -47,7 +47,7 @@ public class Ship extends Element {
 	void dibujarVida(Graphics g) {
 		g.setColor(Color.WHITE);
 		g.setFont(new Font("Serif", Font.PLAIN, 26));
-		g.drawString("" + vidas, 10, Window.ALTO - 20);
+		g.drawString("" + lives, 10, Window.ALTO - 20);
 	}
 
 	void dispara() {

@@ -83,11 +83,11 @@ public class Game {
 
 	void otraOleada() {
 		int puntos = miNave.puntos;
-		int vidas = miNave.vidas;
+		int lives = miNave.lives;
 		numberUfo += 50;
 		inicialitzacio();
 		miNave.puntos = puntos;
-		miNave.setVidas(vidas);
+		miNave.setVidas(lives);
 		try {
 			Thread.sleep(1500);
 		} catch (InterruptedException e) {

@@ -19,7 +19,7 @@ public class Wave extends Element {
 
 	Wave(int x, int y, int v, int width, int height) {
 		super(x, y, v, width, height);
-		vidas = dim;
+		lives = dim;
 		aliens = new Alien[dim];
 		muertos = 0;
 		balasCount = 0;
@@ -71,16 +71,16 @@ public class Wave extends Element {
 		}
 		saltosCount++;
 
-		if (vidas == 1) {
+		if (lives == 1) {
 			intervaloSaltos = 0;
 			velocidad = 3;
-		} else if (vidas <= (int) dim * 0.2) {
+		} else if (lives <= (int) dim * 0.2) {
 			intervaloSaltos = 1;
-		} else if (vidas > (int) dim * 0.2 && vidas <= (int) dim * 0.4) {
+		} else if (lives > (int) dim * 0.2 && lives <= (int) dim * 0.4) {
 			intervaloSaltos = 2;
-		} else if (vidas > (int) dim * 0.4 && vidas <= (int) dim * 0.6) {
+		} else if (lives > (int) dim * 0.4 && lives <= (int) dim * 0.6) {
 			intervaloSaltos = 3;
-		} else if (vidas > (int) dim * 0.6 && vidas <= (int) dim * 0.8) {
+		} else if (lives > (int) dim * 0.6 && lives <= (int) dim * 0.8) {
 			intervaloSaltos = 4;
 		}
 

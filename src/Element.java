@@ -7,7 +7,7 @@ abstract class Element extends Rectangle {
 	int contadorExplotar;
 
 	int puntos;
-	int vidas;
+	int lives;
 	Boolean isLive = true;
 
 	Element(int x, int y, int velocidad, int width, int height) {
@@ -17,18 +17,18 @@ abstract class Element extends Rectangle {
 	}
 
 	void restarVida() {
-		vidas--;
-		if (vidas == 0) {
+		lives--;
+		if (lives == 0) {
 			isLive = false;
 		}
 	}
 
 	int getVidas() {
-		return vidas;
+		return lives;
 	}
 
-	void setVidas(int vidas) {
-		this.vidas = vidas;
+	void setVidas(int lives) {
+		this.lives = lives;
 	}
 
 	void limites() {
