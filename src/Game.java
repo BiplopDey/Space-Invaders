@@ -17,13 +17,13 @@ public class Game {
 	static int bulletFreqAliens = 6;
 	static int tiempoExplosion = 4;
 	int numberUfo = 30;
-	int estado = 1;
+	int state = 1;
 	Window window;
 	Ship miShip;
 	Wave wave;
 	Ufo ufo;
 	Wall muros;
-	final int estadoMenu = 1, estadoPlay = 2, estadoGameOver = 3;
+	final int stateMenu = 1, statePlay = 2, stateGameOver = 3;
 
 	Game(Window window) {
 		this.window = window;
@@ -32,11 +32,11 @@ public class Game {
 	void run() {
 
 		while (true) {
-			if (estado == estadoMenu)
+			if (state == stateMenu)
 				menuInicio();
-			if (estado == estadoPlay)
+			if (state == statePlay)
 				play();
-			if (estado == estadoGameOver) {
+			if (state == stateGameOver) {
 				actualizarScore();
 				gameOver();
 			}
@@ -78,7 +78,7 @@ public class Game {
 
 		}
 		// game over
-		estado = estadoGameOver;
+		state = stateGameOver;
 	}
 
 	void otraOleada() {
@@ -108,7 +108,7 @@ public class Game {
 
 		while (true) {
 			if (Window.isClickedSpace) {
-				estado = estadoPlay;
+				state = statePlay;
 				break;
 			}
 			if (Window.isClickedRight) {
@@ -133,11 +133,11 @@ public class Game {
 
 		while (true) {
 			if (Window.isClickedSpace) {
-				estado = estadoPlay;
+				state = statePlay;
 				break;
 			}
 			if (Window.isClickedRight) {// menu
-				estado = estadoMenu;
+				state = stateMenu;
 				break;
 			}
 			pausa(100);
