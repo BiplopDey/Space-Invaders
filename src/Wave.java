@@ -26,16 +26,16 @@ public class Wave extends Element {
 		saltosCount = 0;
 		for (int i = 0; i < dim; i++) {
 			int fila = i % filas + 1;
-			int tipo = 1;
+			int type = 1;
 
 			if (fila == 1)
-				tipo = Alien.tipo3;
+				type = Alien.type3;
 			if (fila == 2 || fila == 3)
-				tipo = Alien.tipo2;
+				type = Alien.type2;
 			if (fila == 4 || fila == 5)
-				tipo = Alien.tipo1;
+				type = Alien.type1;
 
-			aliens[i] = new Alien(tipo, x + (int) (width * (i % columnas) * 1.2), y + height * (i % filas) + 20, v,
+			aliens[i] = new Alien(type, x + (int) (width * (i % columnas) * 1.2), y + height * (i % filas) + 20, v,
 					width, height);
 		}
 

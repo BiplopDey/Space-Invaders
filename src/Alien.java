@@ -9,20 +9,20 @@ import javax.imageio.ImageIO;
 
 public class Alien extends Element {
 
-	boolean tipoMovimiento = true;
-	int tipo;
-	static int tipo1 = 1, tipo2 = 2, tipo3 = 3;
+	boolean typeMovimiento = true;
+	int type;
+	static int type1 = 1, type2 = 2, type3 = 3;
 
-	Alien(int tipo, int x, int y, int v, int width, int height) {
+	Alien(int type, int x, int y, int v, int width, int height) {
 		super(x, y, v, width, height);
 		contadorExplotar = 0;
-		this.tipo = tipo;
+		this.type = type;
 
-		if (tipo == tipo1)
+		if (type == type1)
 			puntos = 10;
-		if (tipo == tipo2)
+		if (type == type2)
 			puntos = 20;
-		if (tipo == tipo3)
+		if (type == type3)
 			puntos = 30;
 
 	}
@@ -30,7 +30,7 @@ public class Alien extends Element {
 	@Override
 	void mover(int signo) {
 		x += signo * velocidad;
-		tipoMovimiento = !tipoMovimiento;
+		typeMovimiento = !typeMovimiento;
 	}
 
 	void moverVertical(int dy) {
@@ -40,25 +40,25 @@ public class Alien extends Element {
 	@Override
 	void pinta(Graphics g) {
 		if (isLive) {
-			if (tipo == tipo1) {
-				if (tipoMovimiento) {
-					g.drawImage(Window.tipo1abierto, x, y, width, height, null);
+			if (type == type1) {
+				if (typeMovimiento) {
+					g.drawImage(Window.type1abierto, x, y, width, height, null);
 				} else {
-					g.drawImage(Window.tipo1cerrado, x, y, width, height, null);
+					g.drawImage(Window.type1cerrado, x, y, width, height, null);
 				}
 			}
 
-			else if (tipo == tipo2) {
-				if (tipoMovimiento) {
-					g.drawImage(Window.tipo2abierto, x, y, width, height, null);
+			else if (type == type2) {
+				if (typeMovimiento) {
+					g.drawImage(Window.type2abierto, x, y, width, height, null);
 				} else {
-					g.drawImage(Window.tipo2cerrado, x, y, width, height, null);
+					g.drawImage(Window.type2cerrado, x, y, width, height, null);
 				}
-			} else if (tipo == tipo3) {
-				if (tipoMovimiento) {
-					g.drawImage(Window.tipo3abierto, x, y, width, height, null);
+			} else if (type == type3) {
+				if (typeMovimiento) {
+					g.drawImage(Window.type3abierto, x, y, width, height, null);
 				} else {
-					g.drawImage(Window.tipo3cerrado, x, y, width, height, null);
+					g.drawImage(Window.type3cerrado, x, y, width, height, null);
 				}
 			}
 		}
