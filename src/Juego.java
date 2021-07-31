@@ -18,15 +18,15 @@ public class Juego {
 	static int tiempoExplosion = 4;
 	int oleadaYinicial = 30;
 	int estado = 1;
-	Ventana f;
+	Ventana ventana;
 	Nave miNave;
 	Oleada oleada;
 	Ovni ovni;
 	Bloques muros;
 	final int estadoMenu = 1, estadoPlay = 2, estadoGameOver = 3;
 
-	Juego(Ventana f) {
-		this.f = f;
+	Juego(Ventana ventana) {
+		this.ventana = ventana;
 	}
 
 	void run() {
@@ -103,8 +103,8 @@ public class Juego {
 	}
 
 	void menuInicio() {
-		f.g.drawImage(Ventana.inicio, 0, 0, Ventana.ANCHO, Ventana.ALTO, null);
-		f.repaint();
+		ventana.g.drawImage(Ventana.inicio, 0, 0, Ventana.ANCHO, Ventana.ALTO, null);
+		ventana.repaint();
 
 		while (true) {
 			if (Ventana.isClickedSpace) {
@@ -119,16 +119,16 @@ public class Juego {
 	}
 
 	void gameOver() {
-		f.g.drawImage(Ventana.gameOver, (int) Ventana.ANCHO / 4, (int) Ventana.ALTO / 4, (int) Ventana.ANCHO / 2,
+		ventana.g.drawImage(Ventana.gameOver, (int) Ventana.ANCHO / 4, (int) Ventana.ALTO / 4, (int) Ventana.ANCHO / 2,
 				(int) Ventana.ALTO / 2, null);
 
 		if (miNave.puntos == Ventana.hiScore) {// si se supera el hi-score
-			f.g.setColor(Color.WHITE);
-			f.g.setFont(new Font("Se rif", Font.PLAIN, 16));
-			f.g.drawString("CONGRAJULATIONS NEW HIGH SCORE: " + miNave.puntos, (int) Ventana.ANCHO / 4 + 40,
+			ventana.g.setColor(Color.WHITE);
+			ventana.g.setFont(new Font("Se rif", Font.PLAIN, 16));
+			ventana.g.drawString("CONGRAJULATIONS NEW HIGH SCORE: " + miNave.puntos, (int) Ventana.ANCHO / 4 + 40,
 					(int) Ventana.ALTO / 4 + 30);
 		}
-		f.repaint();
+		ventana.repaint();
 		pausa(1000);
 
 		while (true) {
@@ -160,7 +160,7 @@ public class Juego {
 
 	void detectarXocs() {
 		// detectar chocques entre balas de mi nave y otras cosas
-		for (Bala miBala : miNave.balas) {// mis balas vs todos
+		for (Bullet miBala : miNave.balas) {// mis balas vs todos
 
 			for (int j = 0; j < oleada.dim; j++) {// vs aliens
 				if (oleada.aliens[j].isLive && miBala.intersects(oleada.aliens[j])) {
@@ -174,7 +174,7 @@ public class Juego {
 				}
 			}
 
-			for (Bala alienBala : oleada.balas) {// mis balas vs las balas del alien
+			for (Bullet alienBala : oleada.balas) {// mis balas vs las balas del alien
 				if (miBala.intersects(alienBala)) {
 					miBala.isLive = false;
 					alienBala.isLive = false;
@@ -191,7 +191,7 @@ public class Juego {
 			}
 		}
 
-		for (Bala alienBala : oleada.balas) {// balas de alien
+		for (Bullet alienBala : oleada.balas) {// balas del alien
 
 			balasVsMuros(alienBala);
 
@@ -212,7 +212,7 @@ public class Juego {
 
 	}
 
-	void balasVsMuros(Bala bala) {
+	void balasVsMuros(Bullet bala) {
 		for (int j = 0; j < muros.dim; j++) {
 			if (muros.bloques[j].isLive && bala.intersects(muros.bloques[j])) {
 				muros.bloques[j].restarVida();
@@ -231,15 +231,15 @@ public class Juego {
 
 	void pintarPantalla() {
 		// esborrem panatalla
-		f.g.setColor(Color.BLACK);
-		f.g.fillRect(0, 0, Ventana.ANCHO, Ventana.ALTO);
+		ventana.g.setColor(Color.BLACK);
+		ventana.g.fillRect(0, 0, Ventana.ANCHO, Ventana.ALTO);
 		// pintem
-		dibujarScore(f.g);
-		miNave.pinta(f.g);
-		oleada.pinta(f.g);
-		ovni.pinta(f.g);
-		muros.pinta(f.g);
-		f.repaint();// llama a la funcion paint()
+		dibujarScore(ventana.g);
+		miNave.pinta(ventana.g);
+		oleada.pinta(ventana.g);
+		ovni.pinta(ventana.g);
+		muros.pinta(ventana.g);
+		ventana.repaint();// llama a la funcion paint()
 	}
 
 }

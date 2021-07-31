@@ -13,7 +13,7 @@ public class Oleada extends Elemento {
 	int dim = filas * columnas;
 	int signo = +1;// la direccion inicial
 	Alien[] aliens;
-	ArrayList<Bala> balas = new ArrayList<Bala>();
+	ArrayList<Bullet> balas = new ArrayList<Bullet>();
 
 	Random rand;
 
@@ -123,7 +123,7 @@ public class Oleada extends Elemento {
 			else if (aliens[i].contadorExplotar < 5)
 				aliens[i].explotar(g);
 
-		for (Bala b : balas) {
+		for (Bullet b : balas) {
 			b.pinta(g);
 		}
 
@@ -137,7 +137,7 @@ public class Oleada extends Elemento {
 		ArrayList<Integer> vivo = AliensVivos(aliens);
 
 		int i = vivo.get(rand.nextInt(vivo.size()));// devuelve de 0,...,n-1
-		balas.add(new Bala(aliens[i].x + (int) (width * 0.5), aliens[i].y + height, Juego.velocidadBala, 2, 20));
+		balas.add(new Bullet(aliens[i].x + (int) (width * 0.5), aliens[i].y + height, Juego.velocidadBala, 2, 20));
 
 	}
 

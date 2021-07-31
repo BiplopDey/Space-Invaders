@@ -3,7 +3,7 @@ import java.util.*;
 
 public class Nave extends Elemento {
 
-	ArrayList<Bala> balas = new ArrayList<Bala>();
+	ArrayList<Bullet> balas = new ArrayList<Bullet>();
 	int balasCount;
 
 	Nave(int x, int y, int v, int width, int height) {
@@ -35,7 +35,7 @@ public class Nave extends Elemento {
 			g.drawImage(Ventana.naveExplotado, x, y, width, height, null);
 		}
 
-		for (Bala b : balas) {
+		for (Bullet b : balas) {
 			b.pinta(g);
 		}
 	}
@@ -52,7 +52,7 @@ public class Nave extends Elemento {
 
 	void dispara() {
 		Ventana.shoot.start();
-		balas.add(new Bala(x + (int) (width * 0.5), y, Juego.velocidadBala, 2, 20));
+		balas.add(new Bullet(x + (int) (width * 0.5), y, Juego.velocidadBala, 2, 20));
 	}
 
 	void moverBalas() {
