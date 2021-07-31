@@ -16,7 +16,7 @@ abstract class Element extends Rectangle {
 
 	}
 
-	void restarLife() {
+	void substractLife() {
 		lives--;
 		if (lives == 0) {
 			isLive = false;

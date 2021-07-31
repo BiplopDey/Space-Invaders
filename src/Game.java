@@ -166,7 +166,7 @@ public class Game {
 				if (wave.aliens[j].isLive && miBullet.intersects(wave.aliens[j])) {
 					wave.aliens[j].isLive = false;
 					// wave.muertos++;
-					wave.restarLife();
+					wave.substractLife();
 					miShip.sumarPuntos(wave.aliens[j].points);
 					miBullet.isLive = false;
 					Window.crash.start();
@@ -196,14 +196,14 @@ public class Game {
 			bulletsVsMuros(alienBullet);
 
 			if (alienBullet.intersects(miShip)) {
-				miShip.restarLife();
+				miShip.substractLife();
 				alienBullet.isLive = false;
 			}
 
 			if (alienBullet.y < Window.HEIGHT)
 				for (int j = 0; j < muros.dimLinea; j++) {// vs Lineas de abajo
 					if (muros.lineaAbajo[j].isLive && alienBullet.intersects(muros.lineaAbajo[j])) {
-						muros.lineaAbajo[j].restarLife();
+						muros.lineaAbajo[j].substractLife();
 						alienBullet.isLive = false;
 						break;
 					}
@@ -215,7 +215,7 @@ public class Game {
 	void bulletsVsMuros(Bullet bullet) {
 		for (int j = 0; j < muros.dim; j++) {
 			if (muros.brick[j].isLive && bullet.intersects(muros.brick[j])) {
-				muros.brick[j].restarLife();
+				muros.brick[j].substractLife();
 				bullet.isLive = false;
 				break;
 			}
