@@ -18,15 +18,15 @@ public class Juego {
 	static int tiempoExplosion = 4;
 	int oleadaYinicial = 30;
 	int estado = 1;
-	Window ventana;
+	Window window;
 	Nave miNave;
 	Oleada oleada;
 	Ovni ovni;
 	Wall muros;
 	final int estadoMenu = 1, estadoPlay = 2, estadoGameOver = 3;
 
-	Juego(Window ventana) {
-		this.ventana = ventana;
+	Juego(Window window) {
+		this.window = window;
 	}
 
 	void run() {
@@ -103,8 +103,8 @@ public class Juego {
 	}
 
 	void menuInicio() {
-		ventana.g.drawImage(Window.inicio, 0, 0, Window.ANCHO, Window.ALTO, null);
-		ventana.repaint();
+		window.g.drawImage(Window.inicio, 0, 0, Window.ANCHO, Window.ALTO, null);
+		window.repaint();
 
 		while (true) {
 			if (Window.isClickedSpace) {
@@ -119,16 +119,16 @@ public class Juego {
 	}
 
 	void gameOver() {
-		ventana.g.drawImage(Window.gameOver, (int) Window.ANCHO / 4, (int) Window.ALTO / 4, (int) Window.ANCHO / 2,
+		window.g.drawImage(Window.gameOver, (int) Window.ANCHO / 4, (int) Window.ALTO / 4, (int) Window.ANCHO / 2,
 				(int) Window.ALTO / 2, null);
 
 		if (miNave.puntos == Window.hiScore) {// si se supera el hi-score
-			ventana.g.setColor(Color.WHITE);
-			ventana.g.setFont(new Font("Se rif", Font.PLAIN, 16));
-			ventana.g.drawString("CONGRAJULATIONS NEW HIGH SCORE: " + miNave.puntos, (int) Window.ANCHO / 4 + 40,
+			window.g.setColor(Color.WHITE);
+			window.g.setFont(new Font("Se rif", Font.PLAIN, 16));
+			window.g.drawString("CONGRAJULATIONS NEW HIGH SCORE: " + miNave.puntos, (int) Window.ANCHO / 4 + 40,
 					(int) Window.ALTO / 4 + 30);
 		}
-		ventana.repaint();
+		window.repaint();
 		pausa(1000);
 
 		while (true) {
@@ -231,15 +231,15 @@ public class Juego {
 
 	void pintarPantalla() {
 		// esborrem panatalla
-		ventana.g.setColor(Color.BLACK);
-		ventana.g.fillRect(0, 0, Window.ANCHO, Window.ALTO);
+		window.g.setColor(Color.BLACK);
+		window.g.fillRect(0, 0, Window.ANCHO, Window.ALTO);
 		// pintem
-		dibujarScore(ventana.g);
-		miNave.pinta(ventana.g);
-		oleada.pinta(ventana.g);
-		ovni.pinta(ventana.g);
-		muros.pinta(ventana.g);
-		ventana.repaint();// llama a la funcion paint()
+		dibujarScore(window.g);
+		miNave.pinta(window.g);
+		oleada.pinta(window.g);
+		ovni.pinta(window.g);
+		muros.pinta(window.g);
+		window.repaint();// llama a la funcion paint()
 	}
 
 }
