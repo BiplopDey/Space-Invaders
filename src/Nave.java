@@ -1,12 +1,12 @@
 import java.awt.*;
 import java.util.*;
 
-public class Ship extends Elemento {
+public class Nave extends Elemento {
 	
 	ArrayList<Bala> balas=new ArrayList<Bala>();
 	int balasCount;
 	
-	Ship(int x, int y, int v, int width, int height) {
+	Nave(int x, int y, int v, int width, int height) {
 		super(x, y, v, width, height);
 		balasCount=0;
 		vidas=4;

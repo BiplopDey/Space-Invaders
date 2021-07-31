@@ -19,7 +19,7 @@ public class Juego {
 	int oleadaYinicial=30;
 	int estado=1;
 	Ventana f;
-	Ship miNave;
+	Nave miNave;
 	Oleada oleada;
 	Ovni ovni;
 	Bloques muros;
@@ -142,7 +142,7 @@ public class Juego {
 	void inicialitzacio() {	
 		ovni= new Ovni(Ventana.ANCHO,50,velocidadOvni,50,20);
 		oleada=new Oleada(100,oleadaYinicial,velocidadOleadaInicial,40,30);
-		miNave= new Ship((int)(Ventana.ANCHO/2),Ventana.ALTO-70,velocidadShip,50,20);
+		miNave= new Nave((int)(Ventana.ANCHO/2),Ventana.ALTO-70,velocidadShip,50,20);
 		muros = new Bloques(50,400,0,20,20);
 	}
 	
