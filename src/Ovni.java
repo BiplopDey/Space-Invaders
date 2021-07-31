@@ -15,7 +15,7 @@ public class Ovni extends Nave {
 
 	@Override
 	void mover(int signo){
-		if(ovnicount>Joc.frecuenciaOvni) {
+		if(ovnicount>Juego.frecuenciaOvni) {
 			isLive=true;
 			x=Ventana.ANCHO;
 			ovnicount=0;

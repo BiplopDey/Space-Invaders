@@ -7,7 +7,7 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
-public class Joc {
+public class Juego {
 	int velocidadOvni=20;
 	int velocidadOleadaInicial=8;
 	int velocidadShip=20;
@@ -25,7 +25,7 @@ public class Joc {
 	Bloques muros;
 	final int estadoMenu=1,estadoPlay=2,estadoGameOver=3;
 	
-	Joc(Ventana f){ 
+	Juego(Ventana f){ 
 		this.f=f;
 	}
 	

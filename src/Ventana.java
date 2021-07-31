@@ -26,7 +26,7 @@ public class Ventana extends Frame implements WindowListener,KeyListener {
 	static Clip shoot,crash;
 	static Boolean isClickedLeft=false, isClickedRight=false,isClickedSpace=false;
 	static String hiScoreTxt="HiScore.txt";
-	Joc j;
+	Juego j;
 	
 	static int ANCHO=800,ALTO=600;
 	Graphics g;
@@ -54,7 +54,7 @@ public class Ventana extends Frame implements WindowListener,KeyListener {
 		im = createImage(ANCHO,ALTO);
 		g=im.getGraphics();// para pintar en la memoria	 
 		
-		j=new Joc(this);
+		j=new Juego(this);
 		j.run();
 		
 			

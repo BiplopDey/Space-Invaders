@@ -52,11 +52,11 @@ public class Ship extends Nave {
 	
 	void dispara() {
 		Ventana.shoot.start();
-		balas.add(new Bala(x+(int)(width*0.5),y,Joc.velocidadBala,2,20));
+		balas.add(new Bala(x+(int)(width*0.5),y,Juego.velocidadBala,2,20));
 	}
 	
 	void moverBalas() {
-		if(Ventana.isClickedSpace && balasCount>Joc.frecuenciaDisparoShip){
+		if(Ventana.isClickedSpace && balasCount>Juego.frecuenciaDisparoShip){
 			dispara();
 			balasCount=0;
 		}

@@ -138,7 +138,7 @@ public class Oleada extends Nave {
 		ArrayList<Integer> vivo=AliensVivos(aliens);
 		
 		int i=vivo.get( rand.nextInt(vivo.size()));// devuelve de 0,...,n-1
-		balas.add(new Bala(aliens[i].x+(int)(width*0.5),aliens[i].y+height,Joc.velocidadBala,2,20));
+		balas.add(new Bala(aliens[i].x+(int)(width*0.5),aliens[i].y+height,Juego.velocidadBala,2,20));
 		
 	}
 	
@@ -153,7 +153,7 @@ public class Oleada extends Nave {
 	}
 	
 	void moverBalas() {
-		if(balasCount>Joc.frecuenciaDisparoOleada && isLive) {
+		if(balasCount>Juego.frecuenciaDisparoOleada && isLive) {
 			this.dispara();
 			balasCount=0;
 		}
