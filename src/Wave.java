@@ -160,7 +160,7 @@ public class Wave extends Element {
 
 		for (int i = 0; i < bullets.size(); i++) {
 			bullets.get(i).move(+1);
-			if (bullets.get(i).y > Window.ALTO || bullets.get(i).isLive == false) {
+			if (bullets.get(i).y > Window.HEIGHT || bullets.get(i).isLive == false) {
 				bullets.remove(i);
 			}
 		}

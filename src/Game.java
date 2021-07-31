@@ -62,7 +62,7 @@ public class Game {
 
 	void play() {
 		inicialitzacio();
-		while (miNave.isLive && wave.alienExtremoAbajo() < Window.ALTO - 45) {
+		while (miNave.isLive && wave.alienExtremoAbajo() < Window.HEIGHT - 45) {
 
 			if (!wave.isLive) {// si se han matado todos los aliens de la wave, comienza otra wave
 				otraOleada();
@@ -103,7 +103,7 @@ public class Game {
 	}
 
 	void menuInicio() {
-		window.g.drawImage(Window.inicio, 0, 0, Window.ANCHO, Window.ALTO, null);
+		window.g.drawImage(Window.inicio, 0, 0, Window.ANCHO, Window.HEIGHT, null);
 		window.repaint();
 
 		while (true) {
@@ -119,14 +119,14 @@ public class Game {
 	}
 
 	void gameOver() {
-		window.g.drawImage(Window.gameOver, (int) Window.ANCHO / 4, (int) Window.ALTO / 4, (int) Window.ANCHO / 2,
-				(int) Window.ALTO / 2, null);
+		window.g.drawImage(Window.gameOver, (int) Window.ANCHO / 4, (int) Window.HEIGHT / 4, (int) Window.ANCHO / 2,
+				(int) Window.HEIGHT / 2, null);
 
 		if (miNave.puntos == Window.hiScore) {// si se supera el hi-score
 			window.g.setColor(Color.WHITE);
 			window.g.setFont(new Font("Se rif", Font.PLAIN, 16));
 			window.g.drawString("CONGRAJULATIONS NEW HIGH SCORE: " + miNave.puntos, (int) Window.ANCHO / 4 + 40,
-					(int) Window.ALTO / 4 + 30);
+					(int) Window.HEIGHT / 4 + 30);
 		}
 		window.repaint();
 		pausa(1000);
@@ -148,7 +148,7 @@ public class Game {
 	void inicialitzacio() {
 		ufo = new Ufo(Window.ANCHO, 50, speedOvni, 50, 20);
 		wave = new Wave(100, numberUfo, speedOleadaInicial, 40, 30);
-		miNave = new Ship((int) (Window.ANCHO / 2), Window.ALTO - 70, speedNave, 50, 20);
+		miNave = new Ship((int) (Window.ANCHO / 2), Window.HEIGHT - 70, speedNave, 50, 20);
 		muros = new Wall(50, 400, 0, 20, 20);
 	}
 
@@ -200,7 +200,7 @@ public class Game {
 				alienBala.isLive = false;
 			}
 
-			if (alienBala.y < Window.ALTO)
+			if (alienBala.y < Window.HEIGHT)
 				for (int j = 0; j < muros.dimLinea; j++) {// vs Lineas de abajo
 					if (muros.lineaAbajo[j].isLive && alienBala.intersects(muros.lineaAbajo[j])) {
 						muros.lineaAbajo[j].restarVida();
@@ -232,7 +232,7 @@ public class Game {
 	void pintarPantalla() {
 		// esborrem panatalla
 		window.g.setColor(Color.BLACK);
-		window.g.fillRect(0, 0, Window.ANCHO, Window.ALTO);
+		window.g.fillRect(0, 0, Window.ANCHO, Window.HEIGHT);
 		// pintem
 		dibujarScore(window.g);
 		miNave.pinta(window.g);

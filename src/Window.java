@@ -26,7 +26,7 @@ public class Window extends Frame implements WindowListener, KeyListener {
 	static String hiScoreTxt = "HiScore.txt";
 	Game j;
 
-	static int ANCHO = 800, ALTO = 600;
+	static int ANCHO = 800, HEIGHT = 600;
 	Graphics g;
 	Image im;// para hacer el buffer
 
@@ -45,10 +45,10 @@ public class Window extends Frame implements WindowListener, KeyListener {
 		addWindowListener(this);
 		addKeyListener(this);
 
-		setSize(ANCHO, ALTO);
+		setSize(ANCHO, HEIGHT);
 		setVisible(true);
 
-		im = createImage(ANCHO, ALTO);
+		im = createImage(ANCHO, HEIGHT);
 		g = im.getGraphics();// para pintar en la memoria
 
 		j = new Game(this);

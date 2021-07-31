@@ -24,7 +24,7 @@ public class Wall extends Element {
 
 		lineaAbajo = new Brick[dimLinea];
 		for (int i = 0; i < dimLinea; i++)
-			lineaAbajo[i] = new Brick(20 * i, Window.ALTO - 45, 0, 20, 5);
+			lineaAbajo[i] = new Brick(20 * i, Window.HEIGHT - 45, 0, 20, 5);
 
 	}
 
