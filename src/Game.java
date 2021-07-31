@@ -103,7 +103,7 @@ public class Game {
 	}
 
 	void menuInicio() {
-		window.g.drawImage(Window.inicio, 0, 0, Window.WIDTH, Window.HEIGHT, null);
+		window.g.drawImage(Window.start, 0, 0, Window.WIDTH, Window.HEIGHT, null);
 		window.repaint();
 
 		while (true) {

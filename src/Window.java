@@ -19,7 +19,7 @@ public class Window extends Frame implements WindowListener, KeyListener {
 	final int right = 39;
 	final int space = 32;
 	static int hiScore;
-	static BufferedImage inicio, type1open, type2open, type3open, type1close, type2close, type3close,
+	static BufferedImage start, type1open, type2open, type3open, type1close, type2close, type3close,
 			explosion, explosionOvni, gameOver, ufo, shipExplotado, bloqueFase1, bloqueFase2, bloqueFase3, ship;
 	static Clip shoot, crash;
 	static Boolean isClickedLeft = false, isClickedRight = false, isClickedSpace = false;
@@ -97,7 +97,7 @@ public class Window extends Frame implements WindowListener, KeyListener {
 
 	void cargarImagenes() {
 		try {
-			inicio = ImageIO.read(new File("ImagenInicio.png"));
+			start = ImageIO.read(new File("ImagenInicio.png"));
 			ship = ImageIO.read(new File("ship.png"));
 			gameOver = ImageIO.read(new File("gameover.png"));
 			explosion = ImageIO.read(new File("explosion.png"));
