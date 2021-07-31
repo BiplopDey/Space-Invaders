@@ -52,11 +52,11 @@ public class Ship extends Elemento {
 
 	void dispara() {
 		Window.shoot.start();
-		balas.add(new Bullet(x + (int) (width * 0.5), y, Juego.velocidadBala, 2, 20));
+		balas.add(new Bullet(x + (int) (width * 0.5), y, Game.velocidadBala, 2, 20));
 	}
 
 	void moverBalas() {
-		if (Window.isClickedSpace && balasCount > Juego.frecuenciaDisparoNave) {
+		if (Window.isClickedSpace && balasCount > Game.frecuenciaDisparoNave) {
 			dispara();
 			balasCount = 0;
 		}
