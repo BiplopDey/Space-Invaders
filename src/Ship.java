@@ -32,7 +32,7 @@ public class Ship extends Element {
 		}
 		dibujarVida(g);
 		if (!isLive) {
-			g.drawImage(Window.naveExplotado, x, y, width, height, null);
+			g.drawImage(Window.shipExplotado, x, y, width, height, null);
 		}
 
 		for (Bullet b : bullets) {
@@ -41,7 +41,7 @@ public class Ship extends Element {
 	}
 
 	void dibujarNave(Graphics g, int x, int y) {
-		g.drawImage(Window.nave, x, y, width, height, null);
+		g.drawImage(Window.ship, x, y, width, height, null);
 	}
 
 	void dibujarVida(Graphics g) {

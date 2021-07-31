@@ -159,7 +159,7 @@ public class Game {
 	}
 
 	void detectarXocs() {
-		// detectar chocques entre bullets de mi nave y otras cosas
+		// detectar chocques entre bullets de mi ship y otras cosas
 		for (Bullet miBala : miNave.bullets) {// mis bullets vs todos
 
 			for (int j = 0; j < wave.dim; j++) {// vs aliens
