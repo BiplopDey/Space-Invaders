@@ -32,7 +32,7 @@ public class Nave extends Elemento {
 		}	
 		dibujarVida(g);
 		if(!isLive) {
-			g.drawImage(Ventana.shipExplotado, x, y, width, height, null);
+			g.drawImage(Ventana.naveExplotado, x, y, width, height, null);
 		}
 
 		for(Bala b: balas ) { 
@@ -41,7 +41,7 @@ public class Nave extends Elemento {
 	}
 	
 	void dibujarNave(Graphics g,int x,int y) {
-		g.drawImage(Ventana.ship, x, y, width, height, null);
+		g.drawImage(Ventana.nave, x, y, width, height, null);
 	}
 	
 	void dibujarVida(Graphics g) {
@@ -56,7 +56,7 @@ public class Nave extends Elemento {
 	}
 	
 	void moverBalas() {
-		if(Ventana.isClickedSpace && balasCount>Juego.frecuenciaDisparoShip){
+		if(Ventana.isClickedSpace && balasCount>Juego.frecuenciaDisparoNave){
 			dispara();
 			balasCount=0;
 		}
@@ -71,7 +71,7 @@ public class Nave extends Elemento {
 		}
 	}
 
-	void moverShip() {
+	void moverNave() {
 		if(Ventana.isClickedLeft) {
 			mover(-1);	
 		}if(Ventana.isClickedRight) {

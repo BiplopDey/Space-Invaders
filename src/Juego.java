@@ -10,10 +10,10 @@ import javax.imageio.ImageIO;
 public class Juego {
 	int velocidadOvni=20;
 	int velocidadOleadaInicial=8;
-	int velocidadShip=20;
+	int velocidadNave=20;
 	static int velocidadBala=25;
 	static int frecuenciaOvni=160;
-	static int frecuenciaDisparoShip=6;
+	static int frecuenciaDisparoNave=6;
 	static int frecuenciaDisparoOleada=6;
 	static int tiempoExplosion=4;
 	int oleadaYinicial=30;
@@ -142,13 +142,13 @@ public class Juego {
 	void inicialitzacio() {	
 		ovni= new Ovni(Ventana.ANCHO,50,velocidadOvni,50,20);
 		oleada=new Oleada(100,oleadaYinicial,velocidadOleadaInicial,40,30);
-		miNave= new Nave((int)(Ventana.ANCHO/2),Ventana.ALTO-70,velocidadShip,50,20);
+		miNave= new Nave((int)(Ventana.ANCHO/2),Ventana.ALTO-70,velocidadNave,50,20);
 		muros = new Bloques(50,400,0,20,20);
 	}
 	
 	void ferMoviments(){
 		ovni.mover(-1);
-		miNave.moverShip();
+		miNave.moverNave();
 		oleada.mover(0); 
 	}
 	

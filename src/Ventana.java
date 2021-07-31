@@ -22,7 +22,7 @@ public class Ventana extends Frame implements WindowListener,KeyListener {
 	static int hiScore;
 	static BufferedImage 	inicio,tipo1abierto,tipo2abierto,tipo3abierto,
 							tipo1cerrado,tipo2cerrado,tipo3cerrado,explosion,explosionOvni, gameOver, 
-							ovni,shipExplotado, bloqueFase1,bloqueFase2,bloqueFase3,ship;
+							ovni,naveExplotado, bloqueFase1,bloqueFase2,bloqueFase3,nave;
 	static Clip shoot,crash;
 	static Boolean isClickedLeft=false, isClickedRight=false,isClickedSpace=false;
 	static String hiScoreTxt="HiScore.txt";
@@ -105,11 +105,11 @@ public class Ventana extends Frame implements WindowListener,KeyListener {
 	void cargarImagenes() {
 		try {
 			inicio=ImageIO.read(new File("ImagenInicio.png"));
-			ship=ImageIO.read(new File("ship.png"));
+			nave=ImageIO.read(new File("ship.png"));
 			gameOver=ImageIO.read(new File("gameover.png"));
 			explosion=ImageIO.read(new File("explosion.png"));
 			explosionOvni=ImageIO.read(new File("explosionOvni.png"));
-			shipExplotado=ImageIO.read(new File("naveExplotado.png"));
+			naveExplotado=ImageIO.read(new File("naveExplotado.png"));
 			ovni=ImageIO.read(new File("ovni.png"));
 			tipo1abierto = ImageIO.read(new File("tipo1abierto.png"));
 			tipo2abierto = ImageIO.read(new File("tipo2abierto.png"));
