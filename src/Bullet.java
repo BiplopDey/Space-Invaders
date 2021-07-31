@@ -9,8 +9,8 @@ public class Bullet extends Element {
 	}
 
 	@Override
-	void mover(int signo) {
-		y += signo * velocidad;
+	void mover(int sign) {
+		y += sign * velocidad;
 	}
 
 	@Override

@@ -29,7 +29,7 @@ public class Wall extends Element {
 	}
 
 	@Override
-	void mover(int signo) {
+	void mover(int sign) {
 
 	}
 

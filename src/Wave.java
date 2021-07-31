@@ -11,7 +11,7 @@ public class Wave extends Element {
 	int filas = 5;
 	int columnas = 11;
 	int dim = filas * columnas;
-	int signo = +1;// la direccion inicial
+	int sign = +1;// la direccion inicial
 	Alien[] aliens;
 	ArrayList<Bullet> balas = new ArrayList<Bullet>();
 
@@ -51,16 +51,16 @@ public class Wave extends Element {
 	@Override
 	void mover(int dy) {// dy=0 siempre
 		if (alienExtremoDerecho() >= Window.ANCHO - width) {
-			signo = -1;
+			sign = -1;
 			dy = height;
 		} else if (alienExtremoIzquierdo() <= 0) {
-			signo = +1;
+			sign = +1;
 			dy = height;
 		}
 
 		if (saltosCount >= intervaloSaltos) {
 			for (int i = 0; i < dim; i++) {
-				aliens[i].mover(signo * velocidad);
+				aliens[i].mover(sign * velocidad);
 			}
 
 			if (dy != 0)

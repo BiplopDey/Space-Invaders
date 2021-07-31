@@ -14,8 +14,8 @@ public class Ship extends Element {
 	}
 
 	@Override
-	void mover(int signo) {
-		x += signo * velocidad;
+	void mover(int sign) {
+		x += sign * velocidad;
 		limites();
 	}
 
