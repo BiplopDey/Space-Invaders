@@ -1,6 +1,6 @@
 import java.awt.Graphics;
 
-public class Wall extends Elemento {
+public class Wall extends Element {
 
 	Brick[] brick;
 	int filas = 3;

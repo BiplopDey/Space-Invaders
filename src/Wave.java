@@ -2,7 +2,7 @@ import java.awt.Graphics;
 import java.util.ArrayList;
 import java.util.Random;
 
-public class Wave extends Elemento {
+public class Wave extends Element {
 	int saltosCount;
 	int intervaloSaltos = 5;
 	int balasCount;

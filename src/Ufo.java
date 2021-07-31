@@ -2,7 +2,7 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Rectangle;
 
-public class Ufo extends Elemento {
+public class Ufo extends Element {
 	int UfoCount;
 	
 	Ufo(int x, int y, int v, int width, int height) {

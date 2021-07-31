@@ -2,7 +2,7 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Rectangle;
 
-public class Brick extends Elemento {
+public class Brick extends Element {
 
 	Brick(int x, int y, int velocidad, int width, int height) {
 		super(x, y, velocidad, width, height);
