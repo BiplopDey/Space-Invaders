@@ -1,7 +1,7 @@
 import java.awt.Graphics;
 
 
-public class Bloques extends Nave {
+public class Bloques extends Elemento {
 
 	Bloque[] bloques;
 	int filas=3;

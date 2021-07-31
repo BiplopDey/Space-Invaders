@@ -2,7 +2,7 @@ import java.awt.Graphics;
 import java.util.ArrayList;
 import java.util.Random;
 
-public class Oleada extends Nave {
+public class Oleada extends Elemento {
 	int saltosCount;
 	int intervaloSaltos=5;
 	int balasCount;

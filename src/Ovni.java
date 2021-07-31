@@ -2,7 +2,7 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Rectangle;
 
-public class Ovni extends Nave {
+public class Ovni extends Elemento {
 	int ovnicount;
 	
 	Ovni(int x, int y, int v, int width, int height) {

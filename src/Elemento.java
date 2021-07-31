@@ -1,7 +1,7 @@
 import java.awt.Graphics;
 import java.awt.Rectangle;
 
-abstract class Nave extends Rectangle{
+abstract class Elemento extends Rectangle{
 	
 	int velocidad;
 	int contadorExplotar;
@@ -10,7 +10,7 @@ abstract class Nave extends Rectangle{
 	int vidas;
 	Boolean isLive=true;
 	
-	Nave(int x,int y,int velocidad, int width, int height){
+	Elemento(int x,int y,int velocidad, int width, int height){
 		super(x,y,width,height);
 		this.velocidad=velocidad;
 		

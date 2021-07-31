@@ -2,7 +2,7 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Rectangle;
 
-public class Bala extends Nave {
+public class Bala extends Elemento {
 	Bala(int x, int y, int velocidad, int width, int height) {
 		super(x, y, velocidad, width, height);
 		// TODO Auto-generated constructor stub

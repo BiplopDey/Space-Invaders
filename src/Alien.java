@@ -7,7 +7,7 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
-public class Alien extends Nave{
+public class Alien extends Elemento{
 	
 	boolean tipoMovimiento=true;
 	int tipo;

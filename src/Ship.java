@@ -1,7 +1,7 @@
 import java.awt.*;
 import java.util.*;
 
-public class Ship extends Nave {
+public class Ship extends Elemento {
 	
 	ArrayList<Bala> balas=new ArrayList<Bala>();
 	int balasCount;

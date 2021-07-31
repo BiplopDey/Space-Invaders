@@ -2,7 +2,7 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Rectangle;
 
-public class Bloque extends Nave{
+public class Bloque extends Elemento{
 	
 	
 	Bloque(int x, int y, int velocidad, int width, int height) {
