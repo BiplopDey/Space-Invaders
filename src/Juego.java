@@ -20,7 +20,7 @@ public class Juego {
 	int estado = 1;
 	Window window;
 	Nave miNave;
-	Wave oleada;
+	Wave wave;
 	Ufo ufo;
 	Wall muros;
 	final int estadoMenu = 1, estadoPlay = 2, estadoGameOver = 3;
@@ -62,9 +62,9 @@ public class Juego {
 
 	void play() {
 		inicialitzacio();
-		while (miNave.isLive && oleada.alienExtremoAbajo() < Window.ALTO - 45) {
+		while (miNave.isLive && wave.alienExtremoAbajo() < Window.ALTO - 45) {
 
-			if (!oleada.isLive) {// si se han matado todos los aliens de la oleada, comienza otra oleada
+			if (!wave.isLive) {// si se han matado todos los aliens de la wave, comienza otra wave
 				otraOleada();
 			}
 
@@ -147,7 +147,7 @@ public class Juego {
 
 	void inicialitzacio() {
 		ufo = new Ufo(Window.ANCHO, 50, velocidadOvni, 50, 20);
-		oleada = new Wave(100, numberUfo, velocidadOleadaInicial, 40, 30);
+		wave = new Wave(100, numberUfo, velocidadOleadaInicial, 40, 30);
 		miNave = new Nave((int) (Window.ANCHO / 2), Window.ALTO - 70, velocidadNave, 50, 20);
 		muros = new Wall(50, 400, 0, 20, 20);
 	}
@@ -155,26 +155,26 @@ public class Juego {
 	void ferMoviments() {
 		ufo.mover(-1);
 		miNave.moverNave();
-		oleada.mover(0);
+		wave.mover(0);
 	}
 
 	void detectarXocs() {
 		// detectar chocques entre balas de mi nave y otras cosas
 		for (Bullet miBala : miNave.balas) {// mis balas vs todos
 
-			for (int j = 0; j < oleada.dim; j++) {// vs aliens
-				if (oleada.aliens[j].isLive && miBala.intersects(oleada.aliens[j])) {
-					oleada.aliens[j].isLive = false;
-					// oleada.muertos++;
-					oleada.restarVida();
-					miNave.sumarPuntos(oleada.aliens[j].puntos);
+			for (int j = 0; j < wave.dim; j++) {// vs aliens
+				if (wave.aliens[j].isLive && miBala.intersects(wave.aliens[j])) {
+					wave.aliens[j].isLive = false;
+					// wave.muertos++;
+					wave.restarVida();
+					miNave.sumarPuntos(wave.aliens[j].puntos);
 					miBala.isLive = false;
 					Window.crash.start();
 					break;
 				}
 			}
 
-			for (Bullet alienBala : oleada.balas) {// mis balas vs las balas del alien
+			for (Bullet alienBala : wave.balas) {// mis balas vs las balas del alien
 				if (miBala.intersects(alienBala)) {
 					miBala.isLive = false;
 					alienBala.isLive = false;
@@ -191,7 +191,7 @@ public class Juego {
 			}
 		}
 
-		for (Bullet alienBala : oleada.balas) {// balas del alien
+		for (Bullet alienBala : wave.balas) {// balas del alien
 
 			balasVsMuros(alienBala);
 
@@ -236,7 +236,7 @@ public class Juego {
 		// pintem
 		dibujarScore(window.g);
 		miNave.pinta(window.g);
-		oleada.pinta(window.g);
+		wave.pinta(window.g);
 		ufo.pinta(window.g);
 		muros.pinta(window.g);
 		window.repaint();// llama a la funcion paint()
