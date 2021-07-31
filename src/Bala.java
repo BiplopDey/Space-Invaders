@@ -10,13 +10,13 @@ public class Bala extends Elemento {
 
 	@Override
 	void mover(int signo) {
-		y+=signo*velocidad;
+		y += signo * velocidad;
 	}
 
 	@Override
 	void pinta(Graphics g) {
 		g.setColor(Color.WHITE);
-		g.fillRect(x,y,width,height);
+		g.fillRect(x, y, width, height);
 	}
-	
+
 }
