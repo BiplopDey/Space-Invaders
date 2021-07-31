@@ -3,12 +3,12 @@ import java.util.*;
 
 public class Ship extends Element {
 
-	ArrayList<Bullet> balas = new ArrayList<Bullet>();
-	int balasCount;
+	ArrayList<Bullet> bullets = new ArrayList<Bullet>();
+	int bulletsCount;
 
 	Ship(int x, int y, int v, int width, int height) {
 		super(x, y, v, width, height);
-		balasCount = 0;
+		bulletsCount = 0;
 		lives = 4;
 		puntos = 0;
 	}
@@ -35,7 +35,7 @@ public class Ship extends Element {
 			g.drawImage(Window.naveExplotado, x, y, width, height, null);
 		}
 
-		for (Bullet b : balas) {
+		for (Bullet b : bullets) {
 			b.pinta(g);
 		}
 	}
@@ -52,21 +52,21 @@ public class Ship extends Element {
 
 	void dispara() {
 		Window.shoot.start();
-		balas.add(new Bullet(x + (int) (width * 0.5), y, Game.velocidadBala, 2, 20));
+		bullets.add(new Bullet(x + (int) (width * 0.5), y, Game.velocidadBala, 2, 20));
 	}
 
 	void moverBalas() {
-		if (Window.isClickedSpace && balasCount > Game.frecuenciaDisparoNave) {
+		if (Window.isClickedSpace && bulletsCount > Game.frecuenciaDisparoNave) {
 			dispara();
-			balasCount = 0;
+			bulletsCount = 0;
 		}
-		balasCount++;
-		balasCount %= 100;// para no tener numero grandes, cuando no dispara
+		bulletsCount++;
+		bulletsCount %= 100;// para no tener numero grandes, cuando no dispara
 
-		for (int i = 0; i < balas.size(); i++) {
-			balas.get(i).mover(-1);
-			if (balas.get(i).y < 30 || balas.get(i).isLive == false) {
-				balas.remove(i);
+		for (int i = 0; i < bullets.size(); i++) {
+			bullets.get(i).mover(-1);
+			if (bullets.get(i).y < 30 || bullets.get(i).isLive == false) {
+				bullets.remove(i);
 			}
 		}
 	}

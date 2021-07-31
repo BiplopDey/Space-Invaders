@@ -159,8 +159,8 @@ public class Game {
 	}
 
 	void detectarXocs() {
-		// detectar chocques entre balas de mi nave y otras cosas
-		for (Bullet miBala : miNave.balas) {// mis balas vs todos
+		// detectar chocques entre bullets de mi nave y otras cosas
+		for (Bullet miBala : miNave.bullets) {// mis bullets vs todos
 
 			for (int j = 0; j < wave.dim; j++) {// vs aliens
 				if (wave.aliens[j].isLive && miBala.intersects(wave.aliens[j])) {
@@ -174,7 +174,7 @@ public class Game {
 				}
 			}
 
-			for (Bullet alienBala : wave.balas) {// mis balas vs las balas del alien
+			for (Bullet alienBala : wave.bullets) {// mis bullets vs las bullets del alien
 				if (miBala.intersects(alienBala)) {
 					miBala.isLive = false;
 					alienBala.isLive = false;
@@ -182,7 +182,7 @@ public class Game {
 				}
 			}
 
-			balasVsMuros(miBala);
+			bulletsVsMuros(miBala);
 
 			if (ufo.isLive && miBala.intersects(ufo)) {// contra el ufo
 				miNave.sumarPuntos(ufo.puntos);
@@ -191,9 +191,9 @@ public class Game {
 			}
 		}
 
-		for (Bullet alienBala : wave.balas) {// balas del alien
+		for (Bullet alienBala : wave.bullets) {// bullets del alien
 
-			balasVsMuros(alienBala);
+			bulletsVsMuros(alienBala);
 
 			if (alienBala.intersects(miNave)) {
 				miNave.restarVida();
@@ -212,11 +212,11 @@ public class Game {
 
 	}
 
-	void balasVsMuros(Bullet bala) {
+	void bulletsVsMuros(Bullet bullet) {
 		for (int j = 0; j < muros.dim; j++) {
-			if (muros.brick[j].isLive && bala.intersects(muros.brick[j])) {
+			if (muros.brick[j].isLive && bullet.intersects(muros.brick[j])) {
 				muros.brick[j].restarVida();
-				bala.isLive = false;
+				bullet.isLive = false;
 				break;
 			}
 		}

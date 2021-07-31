@@ -5,7 +5,7 @@ import java.util.Random;
 public class Wave extends Element {
 	int saltosCount;
 	int intervaloSaltos = 5;
-	int balasCount;
+	int bulletsCount;
 	int muertos;
 	int velocidad = 1;
 	int filas = 5;
@@ -13,7 +13,7 @@ public class Wave extends Element {
 	int dim = filas * columnas;
 	int sign = +1;// la direccion inicial
 	Alien[] aliens;
-	ArrayList<Bullet> balas = new ArrayList<Bullet>();
+	ArrayList<Bullet> bullets = new ArrayList<Bullet>();
 
 	Random rand;
 
@@ -22,7 +22,7 @@ public class Wave extends Element {
 		lives = dim;
 		aliens = new Alien[dim];
 		muertos = 0;
-		balasCount = 0;
+		bulletsCount = 0;
 		saltosCount = 0;
 		for (int i = 0; i < dim; i++) {
 			int fila = i % filas + 1;
@@ -84,7 +84,7 @@ public class Wave extends Element {
 			intervaloSaltos = 4;
 		}
 
-		// mover balas
+		// mover bullets
 		moverBalas();
 	}
 
@@ -123,7 +123,7 @@ public class Wave extends Element {
 			else if (aliens[i].contadorExplotar < 5)
 				aliens[i].explotar(g);
 
-		for (Bullet b : balas) {
+		for (Bullet b : bullets) {
 			b.pinta(g);
 		}
 
@@ -137,7 +137,7 @@ public class Wave extends Element {
 		ArrayList<Integer> vivo = AliensVivos(aliens);
 
 		int i = vivo.get(rand.nextInt(vivo.size()));// devuelve de 0,...,n-1
-		balas.add(new Bullet(aliens[i].x + (int) (width * 0.5), aliens[i].y + height, Game.velocidadBala, 2, 20));
+		bullets.add(new Bullet(aliens[i].x + (int) (width * 0.5), aliens[i].y + height, Game.velocidadBala, 2, 20));
 
 	}
 
@@ -152,16 +152,16 @@ public class Wave extends Element {
 	}
 
 	void moverBalas() {
-		if (balasCount > Game.frecuenciaDisparoOleada && isLive) {
+		if (bulletsCount > Game.frecuenciaDisparoOleada && isLive) {
 			this.dispara();
-			balasCount = 0;
+			bulletsCount = 0;
 		}
-		balasCount++;
+		bulletsCount++;
 
-		for (int i = 0; i < balas.size(); i++) {
-			balas.get(i).mover(+1);
-			if (balas.get(i).y > Window.ALTO || balas.get(i).isLive == false) {
-				balas.remove(i);
+		for (int i = 0; i < bullets.size(); i++) {
+			bullets.get(i).mover(+1);
+			if (bullets.get(i).y > Window.ALTO || bullets.get(i).isLive == false) {
+				bullets.remove(i);
 			}
 		}
 
