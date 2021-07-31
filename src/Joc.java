@@ -18,14 +18,14 @@ public class Joc {
 	static int tiempoExplosion=4;
 	int oleadaYinicial=30;
 	int estado=1;
-	Finestra f;
+	Ventana f;
 	Ship miNave;
 	Oleada oleada;
 	Ovni ovni;
 	Bloques muros;
 	final int estadoMenu=1,estadoPlay=2,estadoGameOver=3;
 	
-	Joc(Finestra f){ 
+	Joc(Ventana f){ 
 		this.f=f;
 	}
 	
@@ -46,15 +46,15 @@ public class Joc {
 	
 	
 	void actualizarScore() {
-		if(miNave.puntos>Finestra.hiScore) {
-			Finestra.hiScore=miNave.puntos;
+		if(miNave.puntos>Ventana.hiScore) {
+			Ventana.hiScore=miNave.puntos;
 			escribirHiScore(""+miNave.puntos);
 		}
 	}
 	
 	void escribirHiScore(String s) {
 		try {
-		      FileWriter myWriter = new FileWriter(Finestra.hiScoreTxt);
+		      FileWriter myWriter = new FileWriter(Ventana.hiScoreTxt);
 		      myWriter.write(s);
 		      myWriter.close();
 		    } catch (IOException e) {}
@@ -62,7 +62,7 @@ public class Joc {
 	
 	void play() {
 		inicialitzacio();
-		while(miNave.isLive && oleada.alienExtremoAbajo()<Finestra.ALTO-45){
+		while(miNave.isLive && oleada.alienExtremoAbajo()<Ventana.ALTO-45){
 			
 			if(!oleada.isLive) {// si se han matado todos los aliens de la oleada, comienza otra oleada
 				otraOleada();
@@ -99,15 +99,15 @@ public class Joc {
 	}
 	
 	void menuInicio() {
-		f.g.drawImage(Finestra.inicio, 0, 0, Finestra.ANCHO, Finestra.ALTO, null);
+		f.g.drawImage(Ventana.inicio, 0, 0, Ventana.ANCHO, Ventana.ALTO, null);
 		f.repaint();
 		
 		while(true) {
-			if(Finestra.isClickedSpace) {
+			if(Ventana.isClickedSpace) {
 				estado=estadoPlay;
 				break;
 			}
-			if(Finestra.isClickedRight) {
+			if(Ventana.isClickedRight) {
 				escribirHiScore(""+0);
 			}
 			pausa(100);
@@ -115,22 +115,22 @@ public class Joc {
 	}
 	
 	void gameOver() {
-		f.g.drawImage(Finestra.gameOver,(int) Finestra.ANCHO/4, (int) Finestra.ALTO/4 , (int) Finestra.ANCHO/2, (int) Finestra.ALTO/2, null);
+		f.g.drawImage(Ventana.gameOver,(int) Ventana.ANCHO/4, (int) Ventana.ALTO/4 , (int) Ventana.ANCHO/2, (int) Ventana.ALTO/2, null);
 		
-		if(miNave.puntos==Finestra.hiScore) {// si se supera el hi-score
+		if(miNave.puntos==Ventana.hiScore) {// si se supera el hi-score
 			f.g.setColor(Color.WHITE);
 			f.g.setFont(new Font("Se rif", Font.PLAIN, 16));
-			f.g.drawString("CONGRAJULATIONS NEW HIGH SCORE: "+miNave.puntos,(int) Finestra.ANCHO/4 +40, (int) Finestra.ALTO/4 +30);
+			f.g.drawString("CONGRAJULATIONS NEW HIGH SCORE: "+miNave.puntos,(int) Ventana.ANCHO/4 +40, (int) Ventana.ALTO/4 +30);
 		}
 		f.repaint();
 		pausa(1000);
 		
 		while(true) { 
-			if(Finestra.isClickedSpace) {
+			if(Ventana.isClickedSpace) {
 				estado = estadoPlay;
 				break;
 			}
-			if(Finestra.isClickedRight) {//menu
+			if(Ventana.isClickedRight) {//menu
 				estado = estadoMenu;
 				break;
 			}
@@ -140,9 +140,9 @@ public class Joc {
 	}
 	
 	void inicialitzacio() {	
-		ovni= new Ovni(Finestra.ANCHO,50,velocidadOvni,50,20);
+		ovni= new Ovni(Ventana.ANCHO,50,velocidadOvni,50,20);
 		oleada=new Oleada(100,oleadaYinicial,velocidadOleadaInicial,40,30);
-		miNave= new Ship((int)(Finestra.ANCHO/2),Finestra.ALTO-70,velocidadShip,50,20);
+		miNave= new Ship((int)(Ventana.ANCHO/2),Ventana.ALTO-70,velocidadShip,50,20);
 		muros = new Bloques(50,400,0,20,20);
 	}
 	
@@ -164,7 +164,7 @@ public class Joc {
 					oleada.restarVida();
 					miNave.sumarPuntos(oleada.aliens[j].puntos);
 					miBala.isLive=false;
-					Finestra.crash.start();
+					Ventana.crash.start();
 					break;
 				}
 			}
@@ -198,7 +198,7 @@ public class Joc {
 			}
 			
 			 
-			if(alienBala.y<Finestra.ALTO)
+			if(alienBala.y<Ventana.ALTO)
 				for(int j=0;j<muros.dimLinea;j++) {//vs Lineas de abajo
 					if(muros.lineaAbajo[j].isLive && alienBala.intersects(muros.lineaAbajo[j])) {
 						muros.lineaAbajo[j].restarVida();
@@ -224,13 +224,13 @@ public class Joc {
 		g.setColor(Color.WHITE);
 		g.setFont(new Font("Serif", Font.PLAIN, 26));
 		g.drawString("SCORE: "+miNave.puntos,10,50);
-		g.drawString("HI-SCORE: "+Finestra.hiScore,(int) Finestra.ANCHO/2-50,50);
+		g.drawString("HI-SCORE: "+Ventana.hiScore,(int) Ventana.ANCHO/2-50,50);
 	}
 		
 	void pintarPantalla(){
 		// esborrem panatalla
 		f.g.setColor(Color.BLACK);
-		f.g.fillRect(0, 0, Finestra.ANCHO, Finestra.ALTO);
+		f.g.fillRect(0, 0, Ventana.ANCHO, Ventana.ALTO);
 		// pintem 
 		dibujarScore(f.g);
 		miNave.pinta(f.g);

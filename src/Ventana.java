@@ -15,7 +15,7 @@ import javax.sound.sampled.Clip;
 import javax.imageio.ImageIO;
 
 
-public class Finestra extends Frame implements WindowListener,KeyListener {
+public class Ventana extends Frame implements WindowListener,KeyListener {
 	final int left=37;
 	final int right=39;
 	final int space=32;
@@ -33,11 +33,11 @@ public class Finestra extends Frame implements WindowListener,KeyListener {
 	Image im;// para hacer el buffer
 	
 	public static void main(String[] args) {
-		new Finestra();
+		new Ventana();
 	}
 	
 	
-	Finestra(){
+	Ventana(){
 		
 		setTitle("SPACE INVADERS");
 		setResizable(false);

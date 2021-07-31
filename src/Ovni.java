@@ -17,7 +17,7 @@ public class Ovni extends Nave {
 	void mover(int signo){
 		if(ovnicount>Joc.frecuenciaOvni) {
 			isLive=true;
-			x=Finestra.ANCHO;
+			x=Ventana.ANCHO;
 			ovnicount=0;
 			contadorExplotar=0;
 		}
@@ -33,7 +33,7 @@ public class Ovni extends Nave {
 	@Override
 	void pinta(Graphics g) {
 		if(isLive) {
-			g.drawImage(Finestra.ovni, x, y, width, height, null);	
+			g.drawImage(Ventana.ovni, x, y, width, height, null);	
 		}else if(contadorExplotar<5){
 			explotar(g);
 		}
@@ -41,7 +41,7 @@ public class Ovni extends Nave {
 
 	void explotar(Graphics g) {
 		if(contadorExplotar<5){
-			g.drawImage(Finestra.explosionOvni, x, y, width, height, null);	
+			g.drawImage(Ventana.explosionOvni, x, y, width, height, null);	
 			contadorExplotar++;
 		}
 	}

@@ -28,11 +28,11 @@ public class Ship extends Nave {
 		dibujarNave(g,x,y);
 		
 		for(int i=0;i<vidas-1;i++) {
-			dibujarNave(g,width*i+i*10+50,Finestra.ALTO-height-10);
+			dibujarNave(g,width*i+i*10+50,Ventana.ALTO-height-10);
 		}	
 		dibujarVida(g);
 		if(!isLive) {
-			g.drawImage(Finestra.shipExplotado, x, y, width, height, null);
+			g.drawImage(Ventana.shipExplotado, x, y, width, height, null);
 		}
 
 		for(Bala b: balas ) { 
@@ -41,22 +41,22 @@ public class Ship extends Nave {
 	}
 	
 	void dibujarNave(Graphics g,int x,int y) {
-		g.drawImage(Finestra.ship, x, y, width, height, null);
+		g.drawImage(Ventana.ship, x, y, width, height, null);
 	}
 	
 	void dibujarVida(Graphics g) {
 		g.setColor(Color.WHITE);
 		g.setFont(new Font("Serif", Font.PLAIN, 26));
-		g.drawString(""+vidas,10,Finestra.ALTO-20);	
+		g.drawString(""+vidas,10,Ventana.ALTO-20);	
 	}
 	
 	void dispara() {
-		Finestra.shoot.start();
+		Ventana.shoot.start();
 		balas.add(new Bala(x+(int)(width*0.5),y,Joc.velocidadBala,2,20));
 	}
 	
 	void moverBalas() {
-		if(Finestra.isClickedSpace && balasCount>Joc.frecuenciaDisparoShip){
+		if(Ventana.isClickedSpace && balasCount>Joc.frecuenciaDisparoShip){
 			dispara();
 			balasCount=0;
 		}
@@ -72,9 +72,9 @@ public class Ship extends Nave {
 	}
 
 	void moverShip() {
-		if(Finestra.isClickedLeft) {
+		if(Ventana.isClickedLeft) {
 			mover(-1);	
-		}if(Finestra.isClickedRight) {
+		}if(Ventana.isClickedRight) {
 			mover(+1);
 		}
 		moverBalas();

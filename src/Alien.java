@@ -39,24 +39,24 @@ public class Alien extends Nave{
 		if(isLive) {
 			if(tipo==tipo1) {
 				if(tipoMovimiento) {
-					g.drawImage(Finestra.tipo1abierto, x, y, width, height, null);
+					g.drawImage(Ventana.tipo1abierto, x, y, width, height, null);
 				} else {
-					g.drawImage(Finestra.tipo1cerrado, x, y, width, height, null);
+					g.drawImage(Ventana.tipo1cerrado, x, y, width, height, null);
 				}
 			}
 			
 			else if(tipo==tipo2) {
 				if(tipoMovimiento) {
-					g.drawImage(Finestra.tipo2abierto, x, y, width, height, null);
+					g.drawImage(Ventana.tipo2abierto, x, y, width, height, null);
 				} else {
-					g.drawImage(Finestra.tipo2cerrado, x, y, width, height, null);
+					g.drawImage(Ventana.tipo2cerrado, x, y, width, height, null);
 				}
 			}
 			else if(tipo==tipo3) {
 				if(tipoMovimiento) {
-					g.drawImage(Finestra.tipo3abierto, x, y, width, height, null);
+					g.drawImage(Ventana.tipo3abierto, x, y, width, height, null);
 				} else {
-					g.drawImage(Finestra.tipo3cerrado, x, y, width, height, null);
+					g.drawImage(Ventana.tipo3cerrado, x, y, width, height, null);
 				}
 			}	
 		} 
@@ -64,7 +64,7 @@ public class Alien extends Nave{
 	
 	void explotar(Graphics g) {// hay que poner un contador
 		if(contadorExplotar<5) {
-			g.drawImage(Finestra.explosion, x, y, width, height, null);
+			g.drawImage(Ventana.explosion, x, y, width, height, null);
 			contadorExplotar++;
 		}
 	}
