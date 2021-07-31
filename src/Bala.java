@@ -3,14 +3,14 @@ import java.awt.Graphics;
 import java.awt.Rectangle;
 
 public class Bala extends Nave {
-	Bala(int x, int y, int v, int width, int height) {
-		super(x, y, v, width, height);
+	Bala(int x, int y, int velocidad, int width, int height) {
+		super(x, y, velocidad, width, height);
 		// TODO Auto-generated constructor stub
 	}
 
 	@Override
 	void mover(int signo) {
-		y+=signo*v;
+		y+=signo*velocidad;
 	}
 
 	@Override

@@ -3,16 +3,16 @@ import java.awt.Rectangle;
 
 abstract class Nave extends Rectangle{
 	
-	int v;
+	int velocidad;
 	int contadorExplotar;
 	
 	int puntos;
 	int vidas;
 	Boolean isLive=true;
 	
-	Nave(int x,int y,int v, int width, int height){
+	Nave(int x,int y,int velocidad, int width, int height){
 		super(x,y,width,height);
-		this.v=v;
+		this.velocidad=velocidad;
 		
 	}
 	

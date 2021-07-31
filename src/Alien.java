@@ -26,7 +26,7 @@ public class Alien extends Nave{
 	
 	@Override
 	void mover(int signo) {
-		x+=signo*v;
+		x+=signo*velocidad;
 		tipoMovimiento=!tipoMovimiento;
 	}
 

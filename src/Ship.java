@@ -15,7 +15,7 @@ public class Ship extends Nave {
 	
 	@Override
 	void mover(int signo) {
-		x+=signo*v;
+		x+=signo*velocidad;
 		limites();
 	}
 	
@@ -37,9 +37,7 @@ public class Ship extends Nave {
 
 		for(Bala b: balas ) { 
 			b.pinta(g);
-		}
-		
-		
+		}	
 	}
 	
 	void dibujarNave(Graphics g,int x,int y) {

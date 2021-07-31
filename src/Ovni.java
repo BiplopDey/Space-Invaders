@@ -25,7 +25,7 @@ public class Ovni extends Nave {
 			isLive=false;
 		}
 		if(isLive) {
-			x+=signo*v;
+			x+=signo*velocidad;
 		}
 		ovnicount++;
 	}
