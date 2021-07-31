@@ -11,7 +11,7 @@ public class Wave extends Element {
 	int filas = 5;
 	int columnas = 11;
 	int dim = filas * columnas;
-	int sign = +1;// la direccion inicial
+	int sign = +1;// startint direction 
 	Alien[] aliens;
 	ArrayList<Bullet> bullets = new ArrayList<Bullet>();
 
@@ -49,7 +49,7 @@ public class Wave extends Element {
 	}
 
 	@Override
-	void move(int dy) {// dy=0 siempre
+	void move(int dy) {// dy=0 always
 		if (alienExtremoDerecho() >= Window.WIDTH - width) {
 			sign = -1;
 			dy = height;
@@ -88,7 +88,7 @@ public class Wave extends Element {
 		moveBullets();
 	}
 
-	int alienExtremoDerecho() {// devuelve la posicion del alien vivo que esta al extremo derecho
+	int alienExtremoDerecho() {// returns the position of the living alien that is to the extreme right
 		int max = -1;
 		for (int i = 0; i < dim; i++) {
 			if (aliens[i].isLive && aliens[i].x > max)
@@ -136,7 +136,7 @@ public class Wave extends Element {
 	void dispara() {
 		ArrayList<Integer> vivo = AliensVivos(aliens);
 
-		int i = vivo.get(rand.nextInt(vivo.size()));// devuelve de 0,...,n-1
+		int i = vivo.get(rand.nextInt(vivo.size()));// returns between 0,...,n-1
 		bullets.add(new Bullet(aliens[i].x + (int) (width * 0.5), aliens[i].y + height, Game.speedBullet, 2, 20));
 
 	}

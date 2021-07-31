@@ -28,7 +28,7 @@ public class Window extends Frame implements WindowListener, KeyListener {
 
 	static int WIDTH = 800, HEIGHT = 600;
 	Graphics g;
-	Image im;// para hacer el load
+	Image im;// to load
 
 	public static void main(String[] args) {
 		new Window();

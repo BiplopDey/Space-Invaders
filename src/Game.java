@@ -159,13 +159,12 @@ public class Game {
 	}
 
 	void detectarXocs() {
-		// detectar chocques entre bullets de mi ship y otras cosas
-		for (Bullet miBullet : miShip.bullets) {// mis bullets vs todos
+		// detect collisions between bullets of my ship and other things
+		for (Bullet miBullet : miShip.bullets) {// my bullets vs todos
 
 			for (int j = 0; j < wave.dim; j++) {// vs aliens
 				if (wave.aliens[j].isLive && miBullet.intersects(wave.aliens[j])) {
 					wave.aliens[j].isLive = false;
-					// wave.muertos++;
 					wave.substractLife();
 					miShip.sumarPuntos(wave.aliens[j].points);
 					miBullet.isLive = false;
@@ -174,7 +173,7 @@ public class Game {
 				}
 			}
 
-			for (Bullet alienBullet : wave.bullets) {// mis bullets vs las bullets del alien
+			for (Bullet alienBullet : wave.bullets) {// my bullets vs  aliens' bullets
 				if (miBullet.intersects(alienBullet)) {
 					miBullet.isLive = false;
 					alienBullet.isLive = false;
@@ -184,14 +183,14 @@ public class Game {
 
 			bulletsVsMuros(miBullet);
 
-			if (ufo.isLive && miBullet.intersects(ufo)) {// contra el ufo
+			if (ufo.isLive && miBullet.intersects(ufo)) {// vs ufo
 				miShip.sumarPuntos(ufo.points);
 				miBullet.isLive = false;
 				ufo.isLive = false;
 			}
 		}
 
-		for (Bullet alienBullet : wave.bullets) {// bullets del alien
+		for (Bullet alienBullet : wave.bullets) {// aliens' bullets
 
 			bulletsVsMuros(alienBullet);
 
@@ -201,7 +200,7 @@ public class Game {
 			}
 
 			if (alienBullet.y < Window.HEIGHT)
-				for (int j = 0; j < muros.dimLinea; j++) {// vs Lineas de abajo
+				for (int j = 0; j < muros.dimLinea; j++) {// vs bottom line
 					if (muros.lineaAbajo[j].isLive && alienBullet.intersects(muros.lineaAbajo[j])) {
 						muros.lineaAbajo[j].substractLife();
 						alienBullet.isLive = false;
@@ -230,16 +229,16 @@ public class Game {
 	}
 
 	void pintarPantalla() {
-		// esborrem panatalla
+		// erase screen
 		window.g.setColor(Color.BLACK);
 		window.g.fillRect(0, 0, Window.WIDTH, Window.HEIGHT);
-		// pintem
+		// draw
 		drawScore(window.g);
 		miShip.pinta(window.g);
 		wave.pinta(window.g);
 		ufo.pinta(window.g);
 		muros.pinta(window.g);
-		window.repaint();// llama a la funcion paint()
+		window.repaint();// call paint()
 	}
 
 }

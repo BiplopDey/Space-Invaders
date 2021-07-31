@@ -64,7 +64,7 @@ public class Alien extends Element {
 		}
 	}
 
-	void explotar(Graphics g) {// hay que poner un contador
+	void explotar(Graphics g) {
 		if (explosionDuration < 5) {
 			g.drawImage(Window.explosion, x, y, width, height, null);
 			explosionDuration++;

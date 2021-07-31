@@ -61,7 +61,7 @@ public class Ship extends Element {
 			bulletsCount = 0;
 		}
 		bulletsCount++;
-		bulletsCount %= 100;// para no tener numero grandes, cuando no dispara
+		bulletsCount %= 100;// not to have large numbers, when he does not shoot
 
 		for (int i = 0; i < bullets.size(); i++) {
 			bullets.get(i).move(-1);

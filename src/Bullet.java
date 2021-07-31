@@ -11,6 +11,7 @@ public class Bullet extends Element {
 	@Override
 	void move(int sign) {
 		y += sign * speed;
+		
 	}
 
 	@Override
