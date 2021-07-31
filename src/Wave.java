@@ -120,7 +120,7 @@ public class Wave extends Element {
 		for (int i = 0; i < dim; i++)
 			if (aliens[i].isLive)
 				aliens[i].pinta(g);
-			else if (aliens[i].contadorExplotar < 5)
+			else if (aliens[i].explosionDuration < 5)
 				aliens[i].explotar(g);
 
 		for (Bullet b : bullets) {

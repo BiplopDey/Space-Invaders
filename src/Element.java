@@ -4,7 +4,7 @@ import java.awt.Rectangle;
 abstract class Element extends Rectangle {
 
 	int speed;
-	int contadorExplotar;
+	int explosionDuration;
 
 	int points;
 	int lives;

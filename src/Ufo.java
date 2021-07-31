@@ -7,7 +7,7 @@ public class Ufo extends Element {
 
 	Ufo(int x, int y, int v, int width, int height) {
 		super(x, y, v, width, height);
-		contadorExplotar = 0;
+		explosionDuration = 0;
 		UfoCount = 0;
 		isLive = false;
 		points = 50;
@@ -19,7 +19,7 @@ public class Ufo extends Element {
 			isLive = true;
 			x = Window.WIDTH;
 			UfoCount = 0;
-			contadorExplotar = 0;
+			explosionDuration = 0;
 		}
 		if (x + width < -10) {
 			isLive = false;
@@ -34,15 +34,15 @@ public class Ufo extends Element {
 	void pinta(Graphics g) {
 		if (isLive) {
 			g.drawImage(Window.ufo, x, y, width, height, null);
-		} else if (contadorExplotar < 5) {
+		} else if (explosionDuration < 5) {
 			explotar(g);
 		}
 	}
 
 	void explotar(Graphics g) {
-		if (contadorExplotar < 5) {
+		if (explosionDuration < 5) {
 			g.drawImage(Window.explosionOvni, x, y, width, height, null);
-			contadorExplotar++;
+			explosionDuration++;
 		}
 	}
 

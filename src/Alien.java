@@ -15,7 +15,7 @@ public class Alien extends Element {
 
 	Alien(int type, int x, int y, int v, int width, int height) {
 		super(x, y, v, width, height);
-		contadorExplotar = 0;
+		explosionDuration = 0;
 		this.type = type;
 
 		if (type == type1)
@@ -65,9 +65,9 @@ public class Alien extends Element {
 	}
 
 	void explotar(Graphics g) {// hay que poner un contador
-		if (contadorExplotar < 5) {
+		if (explosionDuration < 5) {
 			g.drawImage(Window.explosion, x, y, width, height, null);
-			contadorExplotar++;
+			explosionDuration++;
 		}
 	}
 
