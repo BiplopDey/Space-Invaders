@@ -44,7 +44,7 @@ public class Alien extends Element {
 				if (typeMovimiento) {
 					g.drawImage(Window.type1open, x, y, width, height, null);
 				} else {
-					g.drawImage(Window.type1cerrado, x, y, width, height, null);
+					g.drawImage(Window.type1close, x, y, width, height, null);
 				}
 			}
 
@@ -52,13 +52,13 @@ public class Alien extends Element {
 				if (typeMovimiento) {
 					g.drawImage(Window.type2open, x, y, width, height, null);
 				} else {
-					g.drawImage(Window.type2cerrado, x, y, width, height, null);
+					g.drawImage(Window.type2close, x, y, width, height, null);
 				}
 			} else if (type == type3) {
 				if (typeMovimiento) {
 					g.drawImage(Window.type3open, x, y, width, height, null);
 				} else {
-					g.drawImage(Window.type3cerrado, x, y, width, height, null);
+					g.drawImage(Window.type3close, x, y, width, height, null);
 				}
 			}
 		}

@@ -19,7 +19,7 @@ public class Window extends Frame implements WindowListener, KeyListener {
 	final int right = 39;
 	final int space = 32;
 	static int hiScore;
-	static BufferedImage inicio, type1open, type2open, type3open, type1cerrado, type2cerrado, type3cerrado,
+	static BufferedImage inicio, type1open, type2open, type3open, type1close, type2close, type3close,
 			explosion, explosionOvni, gameOver, ufo, naveExplotado, bloqueFase1, bloqueFase2, bloqueFase3, nave;
 	static Clip shoot, crash;
 	static Boolean isClickedLeft = false, isClickedRight = false, isClickedSpace = false;
@@ -107,9 +107,9 @@ public class Window extends Frame implements WindowListener, KeyListener {
 			type1open = ImageIO.read(new File("tipo1abierto.png"));
 			type2open = ImageIO.read(new File("tipo2abierto.png"));
 			type3open = ImageIO.read(new File("tipo3abierto.png"));
-			type1cerrado = ImageIO.read(new File("tipo1cerrado.png"));
-			type2cerrado = ImageIO.read(new File("tipo2cerrado.png"));
-			type3cerrado = ImageIO.read(new File("tipo3cerrado.png"));
+			type1close = ImageIO.read(new File("tipo1cerrado.png"));
+			type2close = ImageIO.read(new File("tipo2cerrado.png"));
+			type3close = ImageIO.read(new File("tipo3cerrado.png"));
 			bloqueFase1 = ImageIO.read(new File("bloqueFase1.png"));
 			bloqueFase2 = ImageIO.read(new File("bloqueFase2.png"));
 			bloqueFase3 = ImageIO.read(new File("bloqueFase3.png"));
