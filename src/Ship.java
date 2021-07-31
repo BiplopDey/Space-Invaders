@@ -16,7 +16,7 @@ public class Ship extends Element {
 	@Override
 	void move(int sign) {
 		x += sign * speed;
-		limites();
+		limits();
 	}
 
 	void sumarPuntos(int p) {

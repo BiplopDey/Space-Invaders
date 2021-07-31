@@ -31,7 +31,7 @@ abstract class Element extends Rectangle {
 		this.lives = lives;
 	}
 
-	void limites() {
+	void limits() {
 		if (x <= 0) {
 			x = 0;
 		} else if (x >= Window.ANCHO - width) {
