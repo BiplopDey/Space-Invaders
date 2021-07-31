@@ -1,6 +1,6 @@
 import java.awt.Graphics;
 
-public class Bloques extends Elemento {
+public class Wall extends Elemento {
 
 	Brick[] bloques;
 	int filas = 3;
@@ -10,7 +10,7 @@ public class Bloques extends Elemento {
 	Brick[] lineaAbajo;
 	int dimLinea = 40;
 
-	Bloques(int x, int y, int v, int width, int height) {
+	Wall(int x, int y, int v, int width, int height) {
 		super(x, y, v, width, height);
 		bloques = new Brick[dim];
 		for (int i = 0; i < k; i++)

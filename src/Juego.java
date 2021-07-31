@@ -22,7 +22,7 @@ public class Juego {
 	Nave miNave;
 	Oleada oleada;
 	Ovni ovni;
-	Bloques muros;
+	Wall muros;
 	final int estadoMenu = 1, estadoPlay = 2, estadoGameOver = 3;
 
 	Juego(Ventana ventana) {
@@ -149,7 +149,7 @@ public class Juego {
 		ovni = new Ovni(Ventana.ANCHO, 50, velocidadOvni, 50, 20);
 		oleada = new Oleada(100, oleadaYinicial, velocidadOleadaInicial, 40, 30);
 		miNave = new Nave((int) (Ventana.ANCHO / 2), Ventana.ALTO - 70, velocidadNave, 50, 20);
-		muros = new Bloques(50, 400, 0, 20, 20);
+		muros = new Wall(50, 400, 0, 20, 20);
 	}
 
 	void ferMoviments() {
