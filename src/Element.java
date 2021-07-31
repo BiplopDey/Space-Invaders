@@ -6,7 +6,7 @@ abstract class Element extends Rectangle {
 	int speed;
 	int contadorExplotar;
 
-	int puntos;
+	int points;
 	int lives;
 	Boolean isLive = true;
 

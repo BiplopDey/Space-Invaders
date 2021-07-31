@@ -45,9 +45,9 @@ public class Game {
 	}
 
 	void actualizarScore() {
-		if (miNave.puntos > Window.hiScore) {
-			Window.hiScore = miNave.puntos;
-			escribirHiScore("" + miNave.puntos);
+		if (miNave.points > Window.hiScore) {
+			Window.hiScore = miNave.points;
+			escribirHiScore("" + miNave.points);
 		}
 	}
 
@@ -82,11 +82,11 @@ public class Game {
 	}
 
 	void otraOleada() {
-		int puntos = miNave.puntos;
+		int points = miNave.points;
 		int lives = miNave.lives;
 		numberUfo += 50;
 		inicialitzacio();
-		miNave.puntos = puntos;
+		miNave.points = points;
 		miNave.setVidas(lives);
 		try {
 			Thread.sleep(1500);
@@ -122,10 +122,10 @@ public class Game {
 		window.g.drawImage(Window.gameOver, (int) Window.WIDTH / 4, (int) Window.HEIGHT / 4, (int) Window.WIDTH / 2,
 				(int) Window.HEIGHT / 2, null);
 
-		if (miNave.puntos == Window.hiScore) {// si se supera el hi-score
+		if (miNave.points == Window.hiScore) {// si se supera el hi-score
 			window.g.setColor(Color.WHITE);
 			window.g.setFont(new Font("Se rif", Font.PLAIN, 16));
-			window.g.drawString("CONGRAJULATIONS NEW HIGH SCORE: " + miNave.puntos, (int) Window.WIDTH / 4 + 40,
+			window.g.drawString("CONGRAJULATIONS NEW HIGH SCORE: " + miNave.points, (int) Window.WIDTH / 4 + 40,
 					(int) Window.HEIGHT / 4 + 30);
 		}
 		window.repaint();
@@ -167,7 +167,7 @@ public class Game {
 					wave.aliens[j].isLive = false;
 					// wave.muertos++;
 					wave.restarVida();
-					miNave.sumarPuntos(wave.aliens[j].puntos);
+					miNave.sumarPuntos(wave.aliens[j].points);
 					miBala.isLive = false;
 					Window.crash.start();
 					break;
@@ -185,7 +185,7 @@ public class Game {
 			bulletsVsMuros(miBala);
 
 			if (ufo.isLive && miBala.intersects(ufo)) {// contra el ufo
-				miNave.sumarPuntos(ufo.puntos);
+				miNave.sumarPuntos(ufo.points);
 				miBala.isLive = false;
 				ufo.isLive = false;
 			}
@@ -225,7 +225,7 @@ public class Game {
 	void dibujarScore(Graphics g) {
 		g.setColor(Color.WHITE);
 		g.setFont(new Font("Serif", Font.PLAIN, 26));
-		g.drawString("SCORE: " + miNave.puntos, 10, 50);
+		g.drawString("SCORE: " + miNave.points, 10, 50);
 		g.drawString("HI-SCORE: " + Window.hiScore, (int) Window.WIDTH / 2 - 50, 50);
 	}
 

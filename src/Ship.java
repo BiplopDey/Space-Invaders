@@ -10,7 +10,7 @@ public class Ship extends Element {
 		super(x, y, v, width, height);
 		bulletsCount = 0;
 		lives = 4;
-		puntos = 0;
+		points = 0;
 	}
 
 	@Override
@@ -20,7 +20,7 @@ public class Ship extends Element {
 	}
 
 	void sumarPuntos(int p) {
-		puntos += p;
+		points += p;
 	}
 
 	@Override

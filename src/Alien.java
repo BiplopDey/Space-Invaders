@@ -19,11 +19,11 @@ public class Alien extends Element {
 		this.type = type;
 
 		if (type == type1)
-			puntos = 10;
+			points = 10;
 		if (type == type2)
-			puntos = 20;
+			points = 20;
 		if (type == type3)
-			puntos = 30;
+			points = 30;
 
 	}
 

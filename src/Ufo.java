@@ -10,7 +10,7 @@ public class Ufo extends Element {
 		contadorExplotar = 0;
 		UfoCount = 0;
 		isLive = false;
-		puntos = 50;
+		points = 50;
 	}
 
 	@Override
