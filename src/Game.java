@@ -103,7 +103,7 @@ public class Game {
 	}
 
 	void menuInicio() {
-		window.g.drawImage(Window.inicio, 0, 0, Window.ANCHO, Window.HEIGHT, null);
+		window.g.drawImage(Window.inicio, 0, 0, Window.WIDTH, Window.HEIGHT, null);
 		window.repaint();
 
 		while (true) {
@@ -119,13 +119,13 @@ public class Game {
 	}
 
 	void gameOver() {
-		window.g.drawImage(Window.gameOver, (int) Window.ANCHO / 4, (int) Window.HEIGHT / 4, (int) Window.ANCHO / 2,
+		window.g.drawImage(Window.gameOver, (int) Window.WIDTH / 4, (int) Window.HEIGHT / 4, (int) Window.WIDTH / 2,
 				(int) Window.HEIGHT / 2, null);
 
 		if (miNave.puntos == Window.hiScore) {// si se supera el hi-score
 			window.g.setColor(Color.WHITE);
 			window.g.setFont(new Font("Se rif", Font.PLAIN, 16));
-			window.g.drawString("CONGRAJULATIONS NEW HIGH SCORE: " + miNave.puntos, (int) Window.ANCHO / 4 + 40,
+			window.g.drawString("CONGRAJULATIONS NEW HIGH SCORE: " + miNave.puntos, (int) Window.WIDTH / 4 + 40,
 					(int) Window.HEIGHT / 4 + 30);
 		}
 		window.repaint();
@@ -146,9 +146,9 @@ public class Game {
 	}
 
 	void inicialitzacio() {
-		ufo = new Ufo(Window.ANCHO, 50, speedOvni, 50, 20);
+		ufo = new Ufo(Window.WIDTH, 50, speedOvni, 50, 20);
 		wave = new Wave(100, numberUfo, speedOleadaInicial, 40, 30);
-		miNave = new Ship((int) (Window.ANCHO / 2), Window.HEIGHT - 70, speedNave, 50, 20);
+		miNave = new Ship((int) (Window.WIDTH / 2), Window.HEIGHT - 70, speedNave, 50, 20);
 		muros = new Wall(50, 400, 0, 20, 20);
 	}
 
@@ -226,13 +226,13 @@ public class Game {
 		g.setColor(Color.WHITE);
 		g.setFont(new Font("Serif", Font.PLAIN, 26));
 		g.drawString("SCORE: " + miNave.puntos, 10, 50);
-		g.drawString("HI-SCORE: " + Window.hiScore, (int) Window.ANCHO / 2 - 50, 50);
+		g.drawString("HI-SCORE: " + Window.hiScore, (int) Window.WIDTH / 2 - 50, 50);
 	}
 
 	void pintarPantalla() {
 		// esborrem panatalla
 		window.g.setColor(Color.BLACK);
-		window.g.fillRect(0, 0, Window.ANCHO, Window.HEIGHT);
+		window.g.fillRect(0, 0, Window.WIDTH, Window.HEIGHT);
 		// pintem
 		dibujarScore(window.g);
 		miNave.pinta(window.g);

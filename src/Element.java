@@ -34,8 +34,8 @@ abstract class Element extends Rectangle {
 	void limits() {
 		if (x <= 0) {
 			x = 0;
-		} else if (x >= Window.ANCHO - width) {
-			x = Window.ANCHO - width;
+		} else if (x >= Window.WIDTH - width) {
+			x = Window.WIDTH - width;
 		}
 	}
 

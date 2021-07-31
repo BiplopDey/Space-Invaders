@@ -50,7 +50,7 @@ public class Wave extends Element {
 
 	@Override
 	void move(int dy) {// dy=0 siempre
-		if (alienExtremoDerecho() >= Window.ANCHO - width) {
+		if (alienExtremoDerecho() >= Window.WIDTH - width) {
 			sign = -1;
 			dy = height;
 		} else if (alienExtremoIzquierdo() <= 0) {
@@ -98,7 +98,7 @@ public class Wave extends Element {
 	}
 
 	int alienExtremoIzquierdo() {
-		int min = Window.ANCHO + 100;
+		int min = Window.WIDTH + 100;
 		for (int i = 0; i < dim; i++) {
 			if (aliens[i].isLive && aliens[i].x < min)
 				min = aliens[i].x;

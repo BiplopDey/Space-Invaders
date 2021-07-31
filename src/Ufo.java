@@ -17,7 +17,7 @@ public class Ufo extends Element {
 	void move(int sign) {
 		if (UfoCount > Game.frecuenciaOvni) {
 			isLive = true;
-			x = Window.ANCHO;
+			x = Window.WIDTH;
 			UfoCount = 0;
 			contadorExplotar = 0;
 		}
