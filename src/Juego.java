@@ -21,7 +21,7 @@ public class Juego {
 	Window window;
 	Nave miNave;
 	Oleada oleada;
-	Ufo ovni;
+	Ufo ufo;
 	Wall muros;
 	final int estadoMenu = 1, estadoPlay = 2, estadoGameOver = 3;
 
@@ -146,14 +146,14 @@ public class Juego {
 	}
 
 	void inicialitzacio() {
-		ovni = new Ufo(Window.ANCHO, 50, velocidadOvni, 50, 20);
+		ufo = new Ufo(Window.ANCHO, 50, velocidadOvni, 50, 20);
 		oleada = new Oleada(100, oleadaYinicial, velocidadOleadaInicial, 40, 30);
 		miNave = new Nave((int) (Window.ANCHO / 2), Window.ALTO - 70, velocidadNave, 50, 20);
 		muros = new Wall(50, 400, 0, 20, 20);
 	}
 
 	void ferMoviments() {
-		ovni.mover(-1);
+		ufo.mover(-1);
 		miNave.moverNave();
 		oleada.mover(0);
 	}
@@ -184,10 +184,10 @@ public class Juego {
 
 			balasVsMuros(miBala);
 
-			if (ovni.isLive && miBala.intersects(ovni)) {// contra el ovni
-				miNave.sumarPuntos(ovni.puntos);
+			if (ufo.isLive && miBala.intersects(ufo)) {// contra el ufo
+				miNave.sumarPuntos(ufo.puntos);
 				miBala.isLive = false;
-				ovni.isLive = false;
+				ufo.isLive = false;
 			}
 		}
 
@@ -237,7 +237,7 @@ public class Juego {
 		dibujarScore(window.g);
 		miNave.pinta(window.g);
 		oleada.pinta(window.g);
-		ovni.pinta(window.g);
+		ufo.pinta(window.g);
 		muros.pinta(window.g);
 		window.repaint();// llama a la funcion paint()
 	}
