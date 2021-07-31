@@ -25,10 +25,10 @@ public class Ship extends Element {
 
 	@Override
 	void pinta(Graphics g) {
-		dibujarNave(g, x, y);
+		dibujarShip(g, x, y);
 
 		for (int i = 0; i < lives - 1; i++) {
-			dibujarNave(g, width * i + i * 10 + 50, Window.HEIGHT - height - 10);
+			dibujarShip(g, width * i + i * 10 + 50, Window.HEIGHT - height - 10);
 		}
 		dibujarVida(g);
 		if (!isLive) {
@@ -40,7 +40,7 @@ public class Ship extends Element {
 		}
 	}
 
-	void dibujarNave(Graphics g, int x, int y) {
+	void dibujarShip(Graphics g, int x, int y) {
 		g.drawImage(Window.ship, x, y, width, height, null);
 	}
 
@@ -56,7 +56,7 @@ public class Ship extends Element {
 	}
 
 	void moveBalas() {
-		if (Window.isClickedSpace && bulletsCount > Game.frecuenciaDisparoNave) {
+		if (Window.isClickedSpace && bulletsCount > Game.frecuenciaDisparoShip) {
 			dispara();
 			bulletsCount = 0;
 		}
@@ -71,7 +71,7 @@ public class Ship extends Element {
 		}
 	}
 
-	void moveNave() {
+	void moveShip() {
 		if (Window.isClickedLeft) {
 			move(-1);
 		}

@@ -10,16 +10,16 @@ import javax.imageio.ImageIO;
 public class Game {
 	int speedOvni = 20;
 	int speedOleadaInicial = 8;
-	int speedNave = 20;
+	int speedShip = 20;
 	static int speedBala = 25;
 	static int frecuenciaOvni = 160;
-	static int frecuenciaDisparoNave = 6;
+	static int frecuenciaDisparoShip = 6;
 	static int frecuenciaDisparoOleada = 6;
 	static int tiempoExplosion = 4;
 	int numberUfo = 30;
 	int estado = 1;
 	Window window;
-	Ship miNave;
+	Ship miShip;
 	Wave wave;
 	Ufo ufo;
 	Wall muros;
@@ -45,9 +45,9 @@ public class Game {
 	}
 
 	void actualizarScore() {
-		if (miNave.points > Window.hiScore) {
-			Window.hiScore = miNave.points;
-			escribirHiScore("" + miNave.points);
+		if (miShip.points > Window.hiScore) {
+			Window.hiScore = miShip.points;
+			escribirHiScore("" + miShip.points);
 		}
 	}
 
@@ -62,7 +62,7 @@ public class Game {
 
 	void play() {
 		inicialitzacio();
-		while (miNave.isLive && wave.alienExtremoAbajo() < Window.HEIGHT - 45) {
+		while (miShip.isLive && wave.alienExtremoAbajo() < Window.HEIGHT - 45) {
 
 			if (!wave.isLive) {// si se han matado todos los aliens de la wave, comienza otra wave
 				otraOleada();
@@ -82,12 +82,12 @@ public class Game {
 	}
 
 	void otraOleada() {
-		int points = miNave.points;
-		int lives = miNave.lives;
+		int points = miShip.points;
+		int lives = miShip.lives;
 		numberUfo += 50;
 		inicialitzacio();
-		miNave.points = points;
-		miNave.setVidas(lives);
+		miShip.points = points;
+		miShip.setVidas(lives);
 		try {
 			Thread.sleep(1500);
 		} catch (InterruptedException e) {
@@ -122,10 +122,10 @@ public class Game {
 		window.g.drawImage(Window.gameOver, (int) Window.WIDTH / 4, (int) Window.HEIGHT / 4, (int) Window.WIDTH / 2,
 				(int) Window.HEIGHT / 2, null);
 
-		if (miNave.points == Window.hiScore) {// si se supera el hi-score
+		if (miShip.points == Window.hiScore) {// si se supera el hi-score
 			window.g.setColor(Color.WHITE);
 			window.g.setFont(new Font("Se rif", Font.PLAIN, 16));
-			window.g.drawString("CONGRAJULATIONS NEW HIGH SCORE: " + miNave.points, (int) Window.WIDTH / 4 + 40,
+			window.g.drawString("CONGRAJULATIONS NEW HIGH SCORE: " + miShip.points, (int) Window.WIDTH / 4 + 40,
 					(int) Window.HEIGHT / 4 + 30);
 		}
 		window.repaint();
@@ -148,26 +148,26 @@ public class Game {
 	void inicialitzacio() {
 		ufo = new Ufo(Window.WIDTH, 50, speedOvni, 50, 20);
 		wave = new Wave(100, numberUfo, speedOleadaInicial, 40, 30);
-		miNave = new Ship((int) (Window.WIDTH / 2), Window.HEIGHT - 70, speedNave, 50, 20);
+		miShip = new Ship((int) (Window.WIDTH / 2), Window.HEIGHT - 70, speedShip, 50, 20);
 		muros = new Wall(50, 400, 0, 20, 20);
 	}
 
 	void ferMoviments() {
 		ufo.move(-1);
-		miNave.moveNave();
+		miShip.moveShip();
 		wave.move(0);
 	}
 
 	void detectarXocs() {
 		// detectar chocques entre bullets de mi ship y otras cosas
-		for (Bullet miBala : miNave.bullets) {// mis bullets vs todos
+		for (Bullet miBala : miShip.bullets) {// mis bullets vs todos
 
 			for (int j = 0; j < wave.dim; j++) {// vs aliens
 				if (wave.aliens[j].isLive && miBala.intersects(wave.aliens[j])) {
 					wave.aliens[j].isLive = false;
 					// wave.muertos++;
 					wave.restarVida();
-					miNave.sumarPuntos(wave.aliens[j].points);
+					miShip.sumarPuntos(wave.aliens[j].points);
 					miBala.isLive = false;
 					Window.crash.start();
 					break;
@@ -185,7 +185,7 @@ public class Game {
 			bulletsVsMuros(miBala);
 
 			if (ufo.isLive && miBala.intersects(ufo)) {// contra el ufo
-				miNave.sumarPuntos(ufo.points);
+				miShip.sumarPuntos(ufo.points);
 				miBala.isLive = false;
 				ufo.isLive = false;
 			}
@@ -195,8 +195,8 @@ public class Game {
 
 			bulletsVsMuros(alienBala);
 
-			if (alienBala.intersects(miNave)) {
-				miNave.restarVida();
+			if (alienBala.intersects(miShip)) {
+				miShip.restarVida();
 				alienBala.isLive = false;
 			}
 
@@ -225,7 +225,7 @@ public class Game {
 	void dibujarScore(Graphics g) {
 		g.setColor(Color.WHITE);
 		g.setFont(new Font("Serif", Font.PLAIN, 26));
-		g.drawString("SCORE: " + miNave.points, 10, 50);
+		g.drawString("SCORE: " + miShip.points, 10, 50);
 		g.drawString("HI-SCORE: " + Window.hiScore, (int) Window.WIDTH / 2 - 50, 50);
 	}
 
@@ -235,7 +235,7 @@ public class Game {
 		window.g.fillRect(0, 0, Window.WIDTH, Window.HEIGHT);
 		// pintem
 		dibujarScore(window.g);
-		miNave.pinta(window.g);
+		miShip.pinta(window.g);
 		wave.pinta(window.g);
 		ufo.pinta(window.g);
 		muros.pinta(window.g);
