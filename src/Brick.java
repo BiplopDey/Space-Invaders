@@ -2,9 +2,9 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Rectangle;
 
-public class Bloque extends Elemento {
+public class Brick extends Elemento {
 
-	Bloque(int x, int y, int velocidad, int width, int height) {
+	Brick(int x, int y, int velocidad, int width, int height) {
 		super(x, y, velocidad, width, height);
 		// TODO Auto-generated constructor stub
 		vidas = 3;
