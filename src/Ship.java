@@ -52,10 +52,10 @@ public class Ship extends Element {
 
 	void dispara() {
 		Window.shoot.start();
-		bullets.add(new Bullet(x + (int) (width * 0.5), y, Game.speedBala, 2, 20));
+		bullets.add(new Bullet(x + (int) (width * 0.5), y, Game.speedBullet, 2, 20));
 	}
 
-	void moveBalas() {
+	void moveBullets() {
 		if (Window.isClickedSpace && bulletsCount > Game.frecuenciaDisparoShip) {
 			dispara();
 			bulletsCount = 0;
@@ -78,7 +78,7 @@ public class Ship extends Element {
 		if (Window.isClickedRight) {
 			move(+1);
 		}
-		moveBalas();
+		moveBullets();
 	}
 
 }

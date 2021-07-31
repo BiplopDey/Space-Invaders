@@ -85,7 +85,7 @@ public class Wave extends Element {
 		}
 
 		// move bullets
-		moveBalas();
+		moveBullets();
 	}
 
 	int alienExtremoDerecho() {// devuelve la posicion del alien vivo que esta al extremo derecho
@@ -137,7 +137,7 @@ public class Wave extends Element {
 		ArrayList<Integer> vivo = AliensVivos(aliens);
 
 		int i = vivo.get(rand.nextInt(vivo.size()));// devuelve de 0,...,n-1
-		bullets.add(new Bullet(aliens[i].x + (int) (width * 0.5), aliens[i].y + height, Game.speedBala, 2, 20));
+		bullets.add(new Bullet(aliens[i].x + (int) (width * 0.5), aliens[i].y + height, Game.speedBullet, 2, 20));
 
 	}
 
@@ -151,7 +151,7 @@ public class Wave extends Element {
 		return vivo;
 	}
 
-	void moveBalas() {
+	void moveBullets() {
 		if (bulletsCount > Game.frecuenciaDisparoOleada && isLive) {
 			this.dispara();
 			bulletsCount = 0;

@@ -11,7 +11,7 @@ public class Game {
 	int speedOvni = 20;
 	int speedOleadaInicial = 8;
 	int speedShip = 20;
-	static int speedBala = 25;
+	static int speedBullet = 25;
 	static int frecuenciaOvni = 160;
 	static int frecuenciaDisparoShip = 6;
 	static int frecuenciaDisparoOleada = 6;
@@ -160,51 +160,51 @@ public class Game {
 
 	void detectarXocs() {
 		// detectar chocques entre bullets de mi ship y otras cosas
-		for (Bullet miBala : miShip.bullets) {// mis bullets vs todos
+		for (Bullet miBullet : miShip.bullets) {// mis bullets vs todos
 
 			for (int j = 0; j < wave.dim; j++) {// vs aliens
-				if (wave.aliens[j].isLive && miBala.intersects(wave.aliens[j])) {
+				if (wave.aliens[j].isLive && miBullet.intersects(wave.aliens[j])) {
 					wave.aliens[j].isLive = false;
 					// wave.muertos++;
 					wave.restarLife();
 					miShip.sumarPuntos(wave.aliens[j].points);
-					miBala.isLive = false;
+					miBullet.isLive = false;
 					Window.crash.start();
 					break;
 				}
 			}
 
-			for (Bullet alienBala : wave.bullets) {// mis bullets vs las bullets del alien
-				if (miBala.intersects(alienBala)) {
-					miBala.isLive = false;
-					alienBala.isLive = false;
+			for (Bullet alienBullet : wave.bullets) {// mis bullets vs las bullets del alien
+				if (miBullet.intersects(alienBullet)) {
+					miBullet.isLive = false;
+					alienBullet.isLive = false;
 					break;
 				}
 			}
 
-			bulletsVsMuros(miBala);
+			bulletsVsMuros(miBullet);
 
-			if (ufo.isLive && miBala.intersects(ufo)) {// contra el ufo
+			if (ufo.isLive && miBullet.intersects(ufo)) {// contra el ufo
 				miShip.sumarPuntos(ufo.points);
-				miBala.isLive = false;
+				miBullet.isLive = false;
 				ufo.isLive = false;
 			}
 		}
 
-		for (Bullet alienBala : wave.bullets) {// bullets del alien
+		for (Bullet alienBullet : wave.bullets) {// bullets del alien
 
-			bulletsVsMuros(alienBala);
+			bulletsVsMuros(alienBullet);
 
-			if (alienBala.intersects(miShip)) {
+			if (alienBullet.intersects(miShip)) {
 				miShip.restarLife();
-				alienBala.isLive = false;
+				alienBullet.isLive = false;
 			}
 
-			if (alienBala.y < Window.HEIGHT)
+			if (alienBullet.y < Window.HEIGHT)
 				for (int j = 0; j < muros.dimLinea; j++) {// vs Lineas de abajo
-					if (muros.lineaAbajo[j].isLive && alienBala.intersects(muros.lineaAbajo[j])) {
+					if (muros.lineaAbajo[j].isLive && alienBullet.intersects(muros.lineaAbajo[j])) {
 						muros.lineaAbajo[j].restarLife();
-						alienBala.isLive = false;
+						alienBullet.isLive = false;
 						break;
 					}
 				}
