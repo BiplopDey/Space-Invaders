@@ -214,8 +214,8 @@ public class Juego {
 
 	void balasVsMuros(Bullet bala) {
 		for (int j = 0; j < muros.dim; j++) {
-			if (muros.bloques[j].isLive && bala.intersects(muros.bloques[j])) {
-				muros.bloques[j].restarVida();
+			if (muros.brick[j].isLive && bala.intersects(muros.brick[j])) {
+				muros.brick[j].restarVida();
 				bala.isLive = false;
 				break;
 			}

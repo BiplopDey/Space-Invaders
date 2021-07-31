@@ -2,7 +2,7 @@ import java.awt.Graphics;
 
 public class Wall extends Elemento {
 
-	Brick[] bloques;
+	Brick[] brick;
 	int filas = 3;
 	int columnas = 4;
 	int dim = filas * columnas * 4;
@@ -12,15 +12,15 @@ public class Wall extends Elemento {
 
 	Wall(int x, int y, int v, int width, int height) {
 		super(x, y, v, width, height);
-		bloques = new Brick[dim];
+		brick = new Brick[dim];
 		for (int i = 0; i < k; i++)
-			bloques[i] = new Brick(x + width * (i % columnas), y + height * (i % filas), v, width, height);
+			brick[i] = new Brick(x + width * (i % columnas), y + height * (i % filas), v, width, height);
 		for (int i = k; i < 2 * k; i++)
-			bloques[i] = new Brick(x + 200 + width * (i % columnas), y + height * (i % filas), v, width, height);
+			brick[i] = new Brick(x + 200 + width * (i % columnas), y + height * (i % filas), v, width, height);
 		for (int i = 2 * k; i < 3 * k; i++)
-			bloques[i] = new Brick(x + 400 + width * (i % columnas), y + height * (i % filas), v, width, height);
+			brick[i] = new Brick(x + 400 + width * (i % columnas), y + height * (i % filas), v, width, height);
 		for (int i = 3 * k; i < 4 * k; i++)
-			bloques[i] = new Brick(x + 600 + width * (i % columnas), y + height * (i % filas), v, width, height);
+			brick[i] = new Brick(x + 600 + width * (i % columnas), y + height * (i % filas), v, width, height);
 
 		lineaAbajo = new Brick[dimLinea];
 		for (int i = 0; i < dimLinea; i++)
@@ -36,8 +36,8 @@ public class Wall extends Elemento {
 	@Override
 	void pinta(Graphics g) {
 		for (int i = 0; i < dim; i++)
-			if (bloques[i].isLive)
-				bloques[i].pinta(g);
+			if (brick[i].isLive)
+				brick[i].pinta(g);
 
 		for (int i = 0; i < dimLinea; i++)
 			if (lineaAbajo[i].isLive)
