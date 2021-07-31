@@ -110,9 +110,9 @@ public class Window extends Frame implements WindowListener, KeyListener {
 			type1close = ImageIO.read(new File("tipo1cerrado.png"));
 			type2close = ImageIO.read(new File("tipo2cerrado.png"));
 			type3close = ImageIO.read(new File("tipo3cerrado.png"));
-			brickPhase1 = ImageIO.read(new File("brickPhase1.png"));
-			brickPhase2 = ImageIO.read(new File("brickPhase2.png"));
-			brickPhase3 = ImageIO.read(new File("brickPhase3.png"));
+			brickPhase1 = ImageIO.read(new File("bloqueFase1.png"));
+			brickPhase2 = ImageIO.read(new File("bloqueFase2.png"));
+			brickPhase3 = ImageIO.read(new File("bloqueFase3.png"));
 		} catch (IOException ex) {
 		}
 	}
