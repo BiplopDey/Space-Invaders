@@ -16,7 +16,7 @@ public class Juego {
 	static int frecuenciaDisparoNave = 6;
 	static int frecuenciaDisparoOleada = 6;
 	static int tiempoExplosion = 4;
-	int oleadaYinicial = 30;
+	int numberUfo = 30;
 	int estado = 1;
 	Window window;
 	Nave miNave;
@@ -84,7 +84,7 @@ public class Juego {
 	void otraOleada() {
 		int puntos = miNave.puntos;
 		int vidas = miNave.vidas;
-		oleadaYinicial += 50;
+		numberUfo += 50;
 		inicialitzacio();
 		miNave.puntos = puntos;
 		miNave.setVidas(vidas);
@@ -147,7 +147,7 @@ public class Juego {
 
 	void inicialitzacio() {
 		ufo = new Ufo(Window.ANCHO, 50, velocidadOvni, 50, 20);
-		oleada = new Wave(100, oleadaYinicial, velocidadOleadaInicial, 40, 30);
+		oleada = new Wave(100, numberUfo, velocidadOleadaInicial, 40, 30);
 		miNave = new Nave((int) (Window.ANCHO / 2), Window.ALTO - 70, velocidadNave, 50, 20);
 		muros = new Wall(50, 400, 0, 20, 20);
 	}
