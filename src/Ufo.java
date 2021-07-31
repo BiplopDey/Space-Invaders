@@ -2,10 +2,10 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Rectangle;
 
-public class Ovni extends Elemento {
+public class Ufo extends Elemento {
 	int ovnicount;
 	
-	Ovni(int x, int y, int v, int width, int height) {
+	Ufo(int x, int y, int v, int width, int height) {
 		super(x, y, v, width, height);
 		contadorExplotar=0;
 		ovnicount=0;

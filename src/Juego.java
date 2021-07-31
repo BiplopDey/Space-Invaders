@@ -21,7 +21,7 @@ public class Juego {
 	Window window;
 	Nave miNave;
 	Oleada oleada;
-	Ovni ovni;
+	Ufo ovni;
 	Wall muros;
 	final int estadoMenu = 1, estadoPlay = 2, estadoGameOver = 3;
 
@@ -146,7 +146,7 @@ public class Juego {
 	}
 
 	void inicialitzacio() {
-		ovni = new Ovni(Window.ANCHO, 50, velocidadOvni, 50, 20);
+		ovni = new Ufo(Window.ANCHO, 50, velocidadOvni, 50, 20);
 		oleada = new Oleada(100, oleadaYinicial, velocidadOleadaInicial, 40, 30);
 		miNave = new Nave((int) (Window.ANCHO / 2), Window.ALTO - 70, velocidadNave, 50, 20);
 		muros = new Wall(50, 400, 0, 20, 20);
