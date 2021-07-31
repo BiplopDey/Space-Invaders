@@ -12,7 +12,7 @@ public class Bloque extends Nave{
 	}
 
 	@Override
-	void moure(int signo) {
+	void mover(int signo) {
 		// TODO Auto-generated method stub
 	}
 	

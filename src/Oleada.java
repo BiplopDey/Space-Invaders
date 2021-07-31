@@ -49,7 +49,7 @@ public class Oleada extends Nave {
 	}
 	
 	@Override
-	void moure(int dy) {//dy=0 siempre
+	void mover(int dy) {//dy=0 siempre
 			if (alienExtremoDerecho() >= Finestra.AMPLE-width) {
 				signo=-1;
 				dy=height;
@@ -60,12 +60,12 @@ public class Oleada extends Nave {
 			
 			if (saltosCount>=intervaloSaltos ) {
 				for (int i = 0; i < dim; i++) {
-					aliens[i].moure(signo*velocidad);	
+					aliens[i].mover(signo*velocidad);	
 				}
 				
 				if(dy!=0)
 					for (int i = 0; i < dim; i++)
-						aliens[i].moureVertical(dy);
+						aliens[i].moverVertical(dy);
 				
 				saltosCount=0;
 			}
@@ -160,7 +160,7 @@ public class Oleada extends Nave {
 		balasCount++;
 		
 		for (int i = 0; i < balas.size(); i++) {
-			balas.get(i).moure(+1);
+			balas.get(i).mover(+1);
 			if(balas.get(i).y>Finestra.ALT || balas.get(i).isLive==false) {
 				balas.remove(i);
 			}

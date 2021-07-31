@@ -147,9 +147,9 @@ public class Joc {
 	}
 	
 	void ferMoviments(){
-		ovni.moure(-1);
+		ovni.mover(-1);
 		miNave.moverShip();
-		oleada.moure(0); 
+		oleada.mover(0); 
 	}
 	
 

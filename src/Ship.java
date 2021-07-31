@@ -14,7 +14,7 @@ public class Ship extends Nave {
 	}
 	
 	@Override
-	void moure(int signo) {
+	void mover(int signo) {
 		x+=signo*v;
 		limites();
 	}
@@ -66,7 +66,7 @@ public class Ship extends Nave {
 		balasCount%=100;//para no tener numero grandes, cuando no dispara
 
 		for (int i = 0; i < balas.size(); i++) {
-			balas.get(i).moure(-1);
+			balas.get(i).mover(-1);
 			if(balas.get(i).y<30 || balas.get(i).isLive==false) {
 				balas.remove(i);
 			}
@@ -75,9 +75,9 @@ public class Ship extends Nave {
 
 	void moverShip() {
 		if(Finestra.isClickedLeft) {
-			moure(-1);	
+			mover(-1);	
 		}if(Finestra.isClickedRight) {
-			moure(+1);
+			mover(+1);
 		}
 		moverBalas();
 	}

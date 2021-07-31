@@ -7,7 +7,7 @@ public class Bloques extends Nave {
 	int filas=3;
 	int columnas=4;
 	int dim=filas*columnas*4;
-	int k =filas*columnas;
+	int k = filas*columnas;
 	Bloque[] lineaAbajo;
 	int dimLinea=40;
 	Bloques(int x, int y, int v, int width, int height) {
@@ -29,8 +29,7 @@ public class Bloques extends Nave {
 	}
 
 	@Override
-	void moure(int signo) {
-		// TODO Auto-generated method stub
+	void mover(int signo) {
 		
 	}
 

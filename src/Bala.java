@@ -9,7 +9,7 @@ public class Bala extends Nave {
 	}
 
 	@Override
-	void moure(int signo) {
+	void mover(int signo) {
 		y+=signo*v;
 	}
 

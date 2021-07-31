@@ -14,7 +14,7 @@ public class Ovni extends Nave {
 	}
 
 	@Override
-	void moure(int signo){
+	void mover(int signo){
 		if(ovnicount>Joc.frecuenciaOvni) {
 			isLive=true;
 			x=Finestra.AMPLE;

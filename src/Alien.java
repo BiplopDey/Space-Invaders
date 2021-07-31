@@ -25,12 +25,12 @@ public class Alien extends Nave{
 		
 	
 	@Override
-	void moure(int signo) {
+	void mover(int signo) {
 		x+=signo*v;
 		tipoMovimiento=!tipoMovimiento;
 	}
 
-	void moureVertical(int dy) {
+	void moverVertical(int dy) {
 		y+=dy;
 	}
 	

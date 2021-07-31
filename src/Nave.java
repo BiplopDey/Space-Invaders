@@ -39,7 +39,7 @@ abstract class Nave extends Rectangle{
 		}
 	}
 	
-	abstract void moure(int signo);
+	abstract void mover(int signo);
 	abstract void pinta(Graphics g);
 	
 }
