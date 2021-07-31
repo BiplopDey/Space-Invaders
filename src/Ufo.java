@@ -25,7 +25,7 @@ public class Ufo extends Element {
 			isLive = false;
 		}
 		if (isLive) {
-			x += sign * velocidad;
+			x += sign * speed;
 		}
 		UfoCount++;
 	}

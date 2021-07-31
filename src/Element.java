@@ -3,16 +3,16 @@ import java.awt.Rectangle;
 
 abstract class Element extends Rectangle {
 
-	int velocidad;
+	int speed;
 	int contadorExplotar;
 
 	int puntos;
 	int lives;
 	Boolean isLive = true;
 
-	Element(int x, int y, int velocidad, int width, int height) {
+	Element(int x, int y, int speed, int width, int height) {
 		super(x, y, width, height);
-		this.velocidad = velocidad;
+		this.speed = speed;
 
 	}
 

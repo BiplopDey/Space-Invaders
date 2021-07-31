@@ -7,7 +7,7 @@ public class Wave extends Element {
 	int intervaloSaltos = 5;
 	int bulletsCount;
 	int muertos;
-	int velocidad = 1;
+	int speed = 1;
 	int filas = 5;
 	int columnas = 11;
 	int dim = filas * columnas;
@@ -60,7 +60,7 @@ public class Wave extends Element {
 
 		if (saltosCount >= intervaloSaltos) {
 			for (int i = 0; i < dim; i++) {
-				aliens[i].move(sign * velocidad);
+				aliens[i].move(sign * speed);
 			}
 
 			if (dy != 0)
@@ -73,7 +73,7 @@ public class Wave extends Element {
 
 		if (lives == 1) {
 			intervaloSaltos = 0;
-			velocidad = 3;
+			speed = 3;
 		} else if (lives <= (int) dim * 0.2) {
 			intervaloSaltos = 1;
 		} else if (lives > (int) dim * 0.2 && lives <= (int) dim * 0.4) {
@@ -137,7 +137,7 @@ public class Wave extends Element {
 		ArrayList<Integer> vivo = AliensVivos(aliens);
 
 		int i = vivo.get(rand.nextInt(vivo.size()));// devuelve de 0,...,n-1
-		bullets.add(new Bullet(aliens[i].x + (int) (width * 0.5), aliens[i].y + height, Game.velocidadBala, 2, 20));
+		bullets.add(new Bullet(aliens[i].x + (int) (width * 0.5), aliens[i].y + height, Game.speedBala, 2, 20));
 
 	}
 

@@ -15,7 +15,7 @@ public class Ship extends Element {
 
 	@Override
 	void move(int sign) {
-		x += sign * velocidad;
+		x += sign * speed;
 		limites();
 	}
 
@@ -52,7 +52,7 @@ public class Ship extends Element {
 
 	void dispara() {
 		Window.shoot.start();
-		bullets.add(new Bullet(x + (int) (width * 0.5), y, Game.velocidadBala, 2, 20));
+		bullets.add(new Bullet(x + (int) (width * 0.5), y, Game.speedBala, 2, 20));
 	}
 
 	void moveBalas() {

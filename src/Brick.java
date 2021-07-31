@@ -4,8 +4,8 @@ import java.awt.Rectangle;
 
 public class Brick extends Element {
 
-	Brick(int x, int y, int velocidad, int width, int height) {
-		super(x, y, velocidad, width, height);
+	Brick(int x, int y, int speed, int width, int height) {
+		super(x, y, speed, width, height);
 		// TODO Auto-generated constructor stub
 		lives = 3;
 	}

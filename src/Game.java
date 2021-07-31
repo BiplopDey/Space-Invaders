@@ -8,10 +8,10 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 
 public class Game {
-	int velocidadOvni = 20;
-	int velocidadOleadaInicial = 8;
-	int velocidadNave = 20;
-	static int velocidadBala = 25;
+	int speedOvni = 20;
+	int speedOleadaInicial = 8;
+	int speedNave = 20;
+	static int speedBala = 25;
 	static int frecuenciaOvni = 160;
 	static int frecuenciaDisparoNave = 6;
 	static int frecuenciaDisparoOleada = 6;
@@ -146,9 +146,9 @@ public class Game {
 	}
 
 	void inicialitzacio() {
-		ufo = new Ufo(Window.ANCHO, 50, velocidadOvni, 50, 20);
-		wave = new Wave(100, numberUfo, velocidadOleadaInicial, 40, 30);
-		miNave = new Ship((int) (Window.ANCHO / 2), Window.ALTO - 70, velocidadNave, 50, 20);
+		ufo = new Ufo(Window.ANCHO, 50, speedOvni, 50, 20);
+		wave = new Wave(100, numberUfo, speedOleadaInicial, 40, 30);
+		miNave = new Ship((int) (Window.ANCHO / 2), Window.ALTO - 70, speedNave, 50, 20);
 		muros = new Wall(50, 400, 0, 20, 20);
 	}
 
