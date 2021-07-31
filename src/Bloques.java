@@ -24,7 +24,7 @@ public class Bloques extends Nave {
 
 		lineaAbajo=new Bloque[dimLinea];
 		for(int i=0;i<dimLinea;i++)	
-			lineaAbajo[i] = new Bloque( 20*i, Finestra.ALT-45, 0, 20, 5);
+			lineaAbajo[i] = new Bloque( 20*i, Finestra.ALTO-45, 0, 20, 5);
 		
 	}
 

@@ -28,7 +28,7 @@ public class Ship extends Nave {
 		dibujarNave(g,x,y);
 		
 		for(int i=0;i<vidas-1;i++) {
-			dibujarNave(g,width*i+i*10+50,Finestra.ALT-height-10);
+			dibujarNave(g,width*i+i*10+50,Finestra.ALTO-height-10);
 		}	
 		dibujarVida(g);
 		if(!isLive) {
@@ -47,7 +47,7 @@ public class Ship extends Nave {
 	void dibujarVida(Graphics g) {
 		g.setColor(Color.WHITE);
 		g.setFont(new Font("Serif", Font.PLAIN, 26));
-		g.drawString(""+vidas,10,Finestra.ALT-20);	
+		g.drawString(""+vidas,10,Finestra.ALTO-20);	
 	}
 	
 	void dispara() {

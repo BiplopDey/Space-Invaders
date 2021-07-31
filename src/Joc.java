@@ -62,7 +62,7 @@ public class Joc {
 	
 	void play() {
 		inicialitzacio();
-		while(miNave.isLive && oleada.alienExtremoAbajo()<Finestra.ALT-45){
+		while(miNave.isLive && oleada.alienExtremoAbajo()<Finestra.ALTO-45){
 			
 			if(!oleada.isLive) {// si se han matado todos los aliens de la oleada, comienza otra oleada
 				otraOleada();
@@ -99,7 +99,7 @@ public class Joc {
 	}
 	
 	void menuInicio() {
-		f.g.drawImage(Finestra.inicio, 0, 0, Finestra.ANCHO, Finestra.ALT, null);
+		f.g.drawImage(Finestra.inicio, 0, 0, Finestra.ANCHO, Finestra.ALTO, null);
 		f.repaint();
 		
 		while(true) {
@@ -115,12 +115,12 @@ public class Joc {
 	}
 	
 	void gameOver() {
-		f.g.drawImage(Finestra.gameOver,(int) Finestra.ANCHO/4, (int) Finestra.ALT/4 , (int) Finestra.ANCHO/2, (int) Finestra.ALT/2, null);
+		f.g.drawImage(Finestra.gameOver,(int) Finestra.ANCHO/4, (int) Finestra.ALTO/4 , (int) Finestra.ANCHO/2, (int) Finestra.ALTO/2, null);
 		
 		if(miNave.puntos==Finestra.hiScore) {// si se supera el hi-score
 			f.g.setColor(Color.WHITE);
 			f.g.setFont(new Font("Se rif", Font.PLAIN, 16));
-			f.g.drawString("CONGRAJULATIONS NEW HIGH SCORE: "+miNave.puntos,(int) Finestra.ANCHO/4 +40, (int) Finestra.ALT/4 +30);
+			f.g.drawString("CONGRAJULATIONS NEW HIGH SCORE: "+miNave.puntos,(int) Finestra.ANCHO/4 +40, (int) Finestra.ALTO/4 +30);
 		}
 		f.repaint();
 		pausa(1000);
@@ -142,7 +142,7 @@ public class Joc {
 	void inicialitzacio() {	
 		ovni= new Ovni(Finestra.ANCHO,50,velocidadOvni,50,20);
 		oleada=new Oleada(100,oleadaYinicial,velocidadOleadaInicial,40,30);
-		miNave= new Ship((int)(Finestra.ANCHO/2),Finestra.ALT-70,velocidadShip,50,20);
+		miNave= new Ship((int)(Finestra.ANCHO/2),Finestra.ALTO-70,velocidadShip,50,20);
 		muros = new Bloques(50,400,0,20,20);
 	}
 	
@@ -198,7 +198,7 @@ public class Joc {
 			}
 			
 			 
-			if(alienBala.y<Finestra.ALT)
+			if(alienBala.y<Finestra.ALTO)
 				for(int j=0;j<muros.dimLinea;j++) {//vs Lineas de abajo
 					if(muros.lineaAbajo[j].isLive && alienBala.intersects(muros.lineaAbajo[j])) {
 						muros.lineaAbajo[j].restarVida();
@@ -230,7 +230,7 @@ public class Joc {
 	void pintarPantalla(){
 		// esborrem panatalla
 		f.g.setColor(Color.BLACK);
-		f.g.fillRect(0, 0, Finestra.ANCHO, Finestra.ALT);
+		f.g.fillRect(0, 0, Finestra.ANCHO, Finestra.ALTO);
 		// pintem 
 		dibujarScore(f.g);
 		miNave.pinta(f.g);

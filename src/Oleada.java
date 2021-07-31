@@ -161,7 +161,7 @@ public class Oleada extends Nave {
 		
 		for (int i = 0; i < balas.size(); i++) {
 			balas.get(i).mover(+1);
-			if(balas.get(i).y>Finestra.ALT || balas.get(i).isLive==false) {
+			if(balas.get(i).y>Finestra.ALTO || balas.get(i).isLive==false) {
 				balas.remove(i);
 			}
 		}
