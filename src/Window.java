@@ -24,7 +24,7 @@ public class Window extends Frame implements WindowListener, KeyListener {
 	static Clip shoot, crash;
 	static Boolean isClickedLeft = false, isClickedRight = false, isClickedSpace = false;
 	static String hiScoreTxt = "HiScore.txt";
-	Game j;
+	Game game;
 
 	static int WIDTH = 800, HEIGHT = 600;
 	Graphics g;
@@ -51,8 +51,8 @@ public class Window extends Frame implements WindowListener, KeyListener {
 		im = createImage(WIDTH, HEIGHT);
 		g = im.getGraphics();// para pintar en la memoria
 
-		j = new Game(this);
-		j.run();
+		game = new Game(this);
+		game.run();
 
 	}
 
