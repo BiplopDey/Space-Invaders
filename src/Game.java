@@ -14,7 +14,7 @@ public class Game {
 	static int speedBullet = 25;
 	static int frecuenciaOvni = 160;
 	static int frecuenciaDisparoShip = 6;
-	static int frecuenciaDisparoOleada = 6;
+	static int bulletFreqAliens = 6;
 	static int tiempoExplosion = 4;
 	int numberUfo = 30;
 	int estado = 1;

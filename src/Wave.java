@@ -152,7 +152,7 @@ public class Wave extends Element {
 	}
 
 	void moveBullets() {
-		if (bulletsCount > Game.frecuenciaDisparoOleada && isLive) {
+		if (bulletsCount > Game.bulletFreqAliens && isLive) {
 			this.dispara();
 			bulletsCount = 0;
 		}
