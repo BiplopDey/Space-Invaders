@@ -2,7 +2,7 @@ import java.awt.Graphics;
 import java.util.ArrayList;
 import java.util.Random;
 
-public class Oleada extends Elemento {
+public class Wave extends Elemento {
 	int saltosCount;
 	int intervaloSaltos = 5;
 	int balasCount;
@@ -17,7 +17,7 @@ public class Oleada extends Elemento {
 
 	Random rand;
 
-	Oleada(int x, int y, int v, int width, int height) {
+	Wave(int x, int y, int v, int width, int height) {
 		super(x, y, v, width, height);
 		vidas = dim;
 		aliens = new Alien[dim];
