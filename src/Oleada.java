@@ -50,7 +50,7 @@ public class Oleada extends Nave {
 	
 	@Override
 	void mover(int dy) {//dy=0 siempre
-			if (alienExtremoDerecho() >= Finestra.AMPLE-width) {
+			if (alienExtremoDerecho() >= Finestra.ANCHO-width) {
 				signo=-1;
 				dy=height;
 			} else if ( alienExtremoIzquierdo() <= 0) {
@@ -98,7 +98,7 @@ public class Oleada extends Nave {
 	}
 	
 	int alienExtremoIzquierdo() {
-		int min=Finestra.AMPLE+100;
+		int min=Finestra.ANCHO+100;
 		for (int i = 0; i < dim; i++) {
 			if(aliens[i].isLive && aliens[i].x<min)
 				min=aliens[i].x;	

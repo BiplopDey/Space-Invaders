@@ -34,8 +34,8 @@ abstract class Nave extends Rectangle{
 	void limites() {
 		if(x<=0) {
 			x=0;
-		}else if(x>=Finestra.AMPLE-width){
-			x=Finestra.AMPLE-width;
+		}else if(x>=Finestra.ANCHO-width){
+			x=Finestra.ANCHO-width;
 		}
 	}
 	

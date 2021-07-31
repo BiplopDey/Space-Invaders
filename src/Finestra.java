@@ -28,7 +28,7 @@ public class Finestra extends Frame implements WindowListener,KeyListener {
 	static String hiScoreTxt="HiScore.txt";
 	Joc j;
 	
-	static int AMPLE=800,ALT=600;
+	static int ANCHO=800,ALT=600;
 	Graphics g;
 	Image im;// para hacer el buffer
 	
@@ -48,10 +48,10 @@ public class Finestra extends Frame implements WindowListener,KeyListener {
 	 	addWindowListener(this);
 		addKeyListener(this);
 			
-		setSize(AMPLE,ALT);
+		setSize(ANCHO,ALT);
 		setVisible(true);
 		
-		im = createImage(AMPLE,ALT);
+		im = createImage(ANCHO,ALT);
 		g=im.getGraphics();// para pintar en la memoria	 
 		
 		j=new Joc(this);

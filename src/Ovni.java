@@ -17,7 +17,7 @@ public class Ovni extends Nave {
 	void mover(int signo){
 		if(ovnicount>Joc.frecuenciaOvni) {
 			isLive=true;
-			x=Finestra.AMPLE;
+			x=Finestra.ANCHO;
 			ovnicount=0;
 			contadorExplotar=0;
 		}

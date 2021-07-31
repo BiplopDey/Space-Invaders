@@ -99,7 +99,7 @@ public class Joc {
 	}
 	
 	void menuInicio() {
-		f.g.drawImage(Finestra.inicio, 0, 0, Finestra.AMPLE, Finestra.ALT, null);
+		f.g.drawImage(Finestra.inicio, 0, 0, Finestra.ANCHO, Finestra.ALT, null);
 		f.repaint();
 		
 		while(true) {
@@ -115,12 +115,12 @@ public class Joc {
 	}
 	
 	void gameOver() {
-		f.g.drawImage(Finestra.gameOver,(int) Finestra.AMPLE/4, (int) Finestra.ALT/4 , (int) Finestra.AMPLE/2, (int) Finestra.ALT/2, null);
+		f.g.drawImage(Finestra.gameOver,(int) Finestra.ANCHO/4, (int) Finestra.ALT/4 , (int) Finestra.ANCHO/2, (int) Finestra.ALT/2, null);
 		
 		if(miNave.puntos==Finestra.hiScore) {// si se supera el hi-score
 			f.g.setColor(Color.WHITE);
 			f.g.setFont(new Font("Se rif", Font.PLAIN, 16));
-			f.g.drawString("CONGRAJULATIONS NEW HIGH SCORE: "+miNave.puntos,(int) Finestra.AMPLE/4 +40, (int) Finestra.ALT/4 +30);
+			f.g.drawString("CONGRAJULATIONS NEW HIGH SCORE: "+miNave.puntos,(int) Finestra.ANCHO/4 +40, (int) Finestra.ALT/4 +30);
 		}
 		f.repaint();
 		pausa(1000);
@@ -140,9 +140,9 @@ public class Joc {
 	}
 	
 	void inicialitzacio() {	
-		ovni= new Ovni(Finestra.AMPLE,50,velocidadOvni,50,20);
+		ovni= new Ovni(Finestra.ANCHO,50,velocidadOvni,50,20);
 		oleada=new Oleada(100,oleadaYinicial,velocidadOleadaInicial,40,30);
-		miNave= new Ship((int)(Finestra.AMPLE/2),Finestra.ALT-70,velocidadShip,50,20);
+		miNave= new Ship((int)(Finestra.ANCHO/2),Finestra.ALT-70,velocidadShip,50,20);
 		muros = new Bloques(50,400,0,20,20);
 	}
 	
@@ -224,13 +224,13 @@ public class Joc {
 		g.setColor(Color.WHITE);
 		g.setFont(new Font("Serif", Font.PLAIN, 26));
 		g.drawString("SCORE: "+miNave.puntos,10,50);
-		g.drawString("HI-SCORE: "+Finestra.hiScore,(int) Finestra.AMPLE/2-50,50);
+		g.drawString("HI-SCORE: "+Finestra.hiScore,(int) Finestra.ANCHO/2-50,50);
 	}
 		
 	void pintarPantalla(){
 		// esborrem panatalla
 		f.g.setColor(Color.BLACK);
-		f.g.fillRect(0, 0, Finestra.AMPLE, Finestra.ALT);
+		f.g.fillRect(0, 0, Finestra.ANCHO, Finestra.ALT);
 		// pintem 
 		dibujarScore(f.g);
 		miNave.pinta(f.g);
