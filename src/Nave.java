@@ -28,11 +28,11 @@ public class Nave extends Elemento {
 		dibujarNave(g, x, y);
 
 		for (int i = 0; i < vidas - 1; i++) {
-			dibujarNave(g, width * i + i * 10 + 50, Ventana.ALTO - height - 10);
+			dibujarNave(g, width * i + i * 10 + 50, Window.ALTO - height - 10);
 		}
 		dibujarVida(g);
 		if (!isLive) {
-			g.drawImage(Ventana.naveExplotado, x, y, width, height, null);
+			g.drawImage(Window.naveExplotado, x, y, width, height, null);
 		}
 
 		for (Bullet b : balas) {
@@ -41,22 +41,22 @@ public class Nave extends Elemento {
 	}
 
 	void dibujarNave(Graphics g, int x, int y) {
-		g.drawImage(Ventana.nave, x, y, width, height, null);
+		g.drawImage(Window.nave, x, y, width, height, null);
 	}
 
 	void dibujarVida(Graphics g) {
 		g.setColor(Color.WHITE);
 		g.setFont(new Font("Serif", Font.PLAIN, 26));
-		g.drawString("" + vidas, 10, Ventana.ALTO - 20);
+		g.drawString("" + vidas, 10, Window.ALTO - 20);
 	}
 
 	void dispara() {
-		Ventana.shoot.start();
+		Window.shoot.start();
 		balas.add(new Bullet(x + (int) (width * 0.5), y, Juego.velocidadBala, 2, 20));
 	}
 
 	void moverBalas() {
-		if (Ventana.isClickedSpace && balasCount > Juego.frecuenciaDisparoNave) {
+		if (Window.isClickedSpace && balasCount > Juego.frecuenciaDisparoNave) {
 			dispara();
 			balasCount = 0;
 		}
@@ -72,10 +72,10 @@ public class Nave extends Elemento {
 	}
 
 	void moverNave() {
-		if (Ventana.isClickedLeft) {
+		if (Window.isClickedLeft) {
 			mover(-1);
 		}
-		if (Ventana.isClickedRight) {
+		if (Window.isClickedRight) {
 			mover(+1);
 		}
 		moverBalas();

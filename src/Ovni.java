@@ -17,7 +17,7 @@ public class Ovni extends Elemento {
 	void mover(int signo){
 		if(ovnicount>Juego.frecuenciaOvni) {
 			isLive=true;
-			x=Ventana.ANCHO;
+			x=Window.ANCHO;
 			ovnicount=0;
 			contadorExplotar=0;
 		}
@@ -33,7 +33,7 @@ public class Ovni extends Elemento {
 	@Override
 	void pinta(Graphics g) {
 		if(isLive) {
-			g.drawImage(Ventana.ovni, x, y, width, height, null);	
+			g.drawImage(Window.ovni, x, y, width, height, null);	
 		}else if(contadorExplotar<5){
 			explotar(g);
 		}
@@ -41,7 +41,7 @@ public class Ovni extends Elemento {
 
 	void explotar(Graphics g) {
 		if(contadorExplotar<5){
-			g.drawImage(Ventana.explosionOvni, x, y, width, height, null);	
+			g.drawImage(Window.explosionOvni, x, y, width, height, null);	
 			contadorExplotar++;
 		}
 	}

@@ -24,10 +24,10 @@ public class Brick extends Elemento {
 			g.fillRect(x, y, width, height);
 			break;
 		case 2:
-			g.drawImage(Ventana.bloqueFase1, x, y, width, height, null);
+			g.drawImage(Window.bloqueFase1, x, y, width, height, null);
 			break;
 		case 1:
-			g.drawImage(Ventana.bloqueFase3, x, y, width, height, null);
+			g.drawImage(Window.bloqueFase3, x, y, width, height, null);
 			break;
 		}
 

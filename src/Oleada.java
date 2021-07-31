@@ -50,7 +50,7 @@ public class Oleada extends Elemento {
 
 	@Override
 	void mover(int dy) {// dy=0 siempre
-		if (alienExtremoDerecho() >= Ventana.ANCHO - width) {
+		if (alienExtremoDerecho() >= Window.ANCHO - width) {
 			signo = -1;
 			dy = height;
 		} else if (alienExtremoIzquierdo() <= 0) {
@@ -98,7 +98,7 @@ public class Oleada extends Elemento {
 	}
 
 	int alienExtremoIzquierdo() {
-		int min = Ventana.ANCHO + 100;
+		int min = Window.ANCHO + 100;
 		for (int i = 0; i < dim; i++) {
 			if (aliens[i].isLive && aliens[i].x < min)
 				min = aliens[i].x;
@@ -160,7 +160,7 @@ public class Oleada extends Elemento {
 
 		for (int i = 0; i < balas.size(); i++) {
 			balas.get(i).mover(+1);
-			if (balas.get(i).y > Ventana.ALTO || balas.get(i).isLive == false) {
+			if (balas.get(i).y > Window.ALTO || balas.get(i).isLive == false) {
 				balas.remove(i);
 			}
 		}

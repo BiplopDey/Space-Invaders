@@ -34,8 +34,8 @@ abstract class Elemento extends Rectangle {
 	void limites() {
 		if (x <= 0) {
 			x = 0;
-		} else if (x >= Ventana.ANCHO - width) {
-			x = Ventana.ANCHO - width;
+		} else if (x >= Window.ANCHO - width) {
+			x = Window.ANCHO - width;
 		}
 	}
 

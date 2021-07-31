@@ -18,14 +18,14 @@ public class Juego {
 	static int tiempoExplosion = 4;
 	int oleadaYinicial = 30;
 	int estado = 1;
-	Ventana ventana;
+	Window ventana;
 	Nave miNave;
 	Oleada oleada;
 	Ovni ovni;
 	Wall muros;
 	final int estadoMenu = 1, estadoPlay = 2, estadoGameOver = 3;
 
-	Juego(Ventana ventana) {
+	Juego(Window ventana) {
 		this.ventana = ventana;
 	}
 
@@ -45,15 +45,15 @@ public class Juego {
 	}
 
 	void actualizarScore() {
-		if (miNave.puntos > Ventana.hiScore) {
-			Ventana.hiScore = miNave.puntos;
+		if (miNave.puntos > Window.hiScore) {
+			Window.hiScore = miNave.puntos;
 			escribirHiScore("" + miNave.puntos);
 		}
 	}
 
 	void escribirHiScore(String s) {
 		try {
-			FileWriter myWriter = new FileWriter(Ventana.hiScoreTxt);
+			FileWriter myWriter = new FileWriter(Window.hiScoreTxt);
 			myWriter.write(s);
 			myWriter.close();
 		} catch (IOException e) {
@@ -62,7 +62,7 @@ public class Juego {
 
 	void play() {
 		inicialitzacio();
-		while (miNave.isLive && oleada.alienExtremoAbajo() < Ventana.ALTO - 45) {
+		while (miNave.isLive && oleada.alienExtremoAbajo() < Window.ALTO - 45) {
 
 			if (!oleada.isLive) {// si se han matado todos los aliens de la oleada, comienza otra oleada
 				otraOleada();
@@ -103,15 +103,15 @@ public class Juego {
 	}
 
 	void menuInicio() {
-		ventana.g.drawImage(Ventana.inicio, 0, 0, Ventana.ANCHO, Ventana.ALTO, null);
+		ventana.g.drawImage(Window.inicio, 0, 0, Window.ANCHO, Window.ALTO, null);
 		ventana.repaint();
 
 		while (true) {
-			if (Ventana.isClickedSpace) {
+			if (Window.isClickedSpace) {
 				estado = estadoPlay;
 				break;
 			}
-			if (Ventana.isClickedRight) {
+			if (Window.isClickedRight) {
 				escribirHiScore("" + 0);
 			}
 			pausa(100);
@@ -119,24 +119,24 @@ public class Juego {
 	}
 
 	void gameOver() {
-		ventana.g.drawImage(Ventana.gameOver, (int) Ventana.ANCHO / 4, (int) Ventana.ALTO / 4, (int) Ventana.ANCHO / 2,
-				(int) Ventana.ALTO / 2, null);
+		ventana.g.drawImage(Window.gameOver, (int) Window.ANCHO / 4, (int) Window.ALTO / 4, (int) Window.ANCHO / 2,
+				(int) Window.ALTO / 2, null);
 
-		if (miNave.puntos == Ventana.hiScore) {// si se supera el hi-score
+		if (miNave.puntos == Window.hiScore) {// si se supera el hi-score
 			ventana.g.setColor(Color.WHITE);
 			ventana.g.setFont(new Font("Se rif", Font.PLAIN, 16));
-			ventana.g.drawString("CONGRAJULATIONS NEW HIGH SCORE: " + miNave.puntos, (int) Ventana.ANCHO / 4 + 40,
-					(int) Ventana.ALTO / 4 + 30);
+			ventana.g.drawString("CONGRAJULATIONS NEW HIGH SCORE: " + miNave.puntos, (int) Window.ANCHO / 4 + 40,
+					(int) Window.ALTO / 4 + 30);
 		}
 		ventana.repaint();
 		pausa(1000);
 
 		while (true) {
-			if (Ventana.isClickedSpace) {
+			if (Window.isClickedSpace) {
 				estado = estadoPlay;
 				break;
 			}
-			if (Ventana.isClickedRight) {// menu
+			if (Window.isClickedRight) {// menu
 				estado = estadoMenu;
 				break;
 			}
@@ -146,9 +146,9 @@ public class Juego {
 	}
 
 	void inicialitzacio() {
-		ovni = new Ovni(Ventana.ANCHO, 50, velocidadOvni, 50, 20);
+		ovni = new Ovni(Window.ANCHO, 50, velocidadOvni, 50, 20);
 		oleada = new Oleada(100, oleadaYinicial, velocidadOleadaInicial, 40, 30);
-		miNave = new Nave((int) (Ventana.ANCHO / 2), Ventana.ALTO - 70, velocidadNave, 50, 20);
+		miNave = new Nave((int) (Window.ANCHO / 2), Window.ALTO - 70, velocidadNave, 50, 20);
 		muros = new Wall(50, 400, 0, 20, 20);
 	}
 
@@ -169,7 +169,7 @@ public class Juego {
 					oleada.restarVida();
 					miNave.sumarPuntos(oleada.aliens[j].puntos);
 					miBala.isLive = false;
-					Ventana.crash.start();
+					Window.crash.start();
 					break;
 				}
 			}
@@ -200,7 +200,7 @@ public class Juego {
 				alienBala.isLive = false;
 			}
 
-			if (alienBala.y < Ventana.ALTO)
+			if (alienBala.y < Window.ALTO)
 				for (int j = 0; j < muros.dimLinea; j++) {// vs Lineas de abajo
 					if (muros.lineaAbajo[j].isLive && alienBala.intersects(muros.lineaAbajo[j])) {
 						muros.lineaAbajo[j].restarVida();
@@ -226,13 +226,13 @@ public class Juego {
 		g.setColor(Color.WHITE);
 		g.setFont(new Font("Serif", Font.PLAIN, 26));
 		g.drawString("SCORE: " + miNave.puntos, 10, 50);
-		g.drawString("HI-SCORE: " + Ventana.hiScore, (int) Ventana.ANCHO / 2 - 50, 50);
+		g.drawString("HI-SCORE: " + Window.hiScore, (int) Window.ANCHO / 2 - 50, 50);
 	}
 
 	void pintarPantalla() {
 		// esborrem panatalla
 		ventana.g.setColor(Color.BLACK);
-		ventana.g.fillRect(0, 0, Ventana.ANCHO, Ventana.ALTO);
+		ventana.g.fillRect(0, 0, Window.ANCHO, Window.ALTO);
 		// pintem
 		dibujarScore(ventana.g);
 		miNave.pinta(ventana.g);
