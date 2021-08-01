@@ -116,15 +116,15 @@ public class Wave extends Element {
 	}
 
 	@Override
-	void pinta(Graphics g) {
+	void paint(Graphics g) {
 		for (int i = 0; i < dim; i++)
 			if (aliens[i].isLive)
-				aliens[i].pinta(g);
+				aliens[i].paint(g);
 			else if (aliens[i].explosionDuration < 5)
 				aliens[i].explotar(g);
 
 		for (Bullet b : bullets) {
-			b.pinta(g);
+			b.paint(g);
 		}
 
 	}

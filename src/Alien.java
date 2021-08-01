@@ -38,7 +38,7 @@ public class Alien extends Element {
 	}
 
 	@Override
-	void pinta(Graphics g) {
+	void paint(Graphics g) {
 		if (isLive) {
 			if (type == type1) {
 				if (typeMovimiento) {

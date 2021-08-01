@@ -31,7 +31,7 @@ public class Ufo extends Element {
 	}
 
 	@Override
-	void pinta(Graphics g) {
+	void paint(Graphics g) {
 		if (isLive) {
 			g.drawImage(Window.ufo, x, y, width, height, null);
 		} else if (explosionDuration < 5) {

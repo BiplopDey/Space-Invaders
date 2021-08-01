@@ -34,14 +34,14 @@ public class Wall extends Element {
 	}
 
 	@Override
-	void pinta(Graphics g) {
+	void paint(Graphics g) {
 		for (int i = 0; i < dim; i++)
 			if (brick[i].isLive)
-				brick[i].pinta(g);
+				brick[i].paint(g);
 
 		for (int i = 0; i < dimLinea; i++)
 			if (lineaAbajo[i].isLive)
-				lineaAbajo[i].pinta(g);
+				lineaAbajo[i].paint(g);
 	}
 
 }

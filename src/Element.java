@@ -41,6 +41,6 @@ abstract class Element extends Rectangle {
 
 	abstract void move(int sign);
 
-	abstract void pinta(Graphics g);
+	abstract void paint(Graphics g);
 
 }

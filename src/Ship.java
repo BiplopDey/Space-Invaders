@@ -24,7 +24,7 @@ public class Ship extends Element {
 	}
 
 	@Override
-	void pinta(Graphics g) {
+	void paint(Graphics g) {
 		drawShip(g, x, y);
 
 		for (int i = 0; i < lives - 1; i++) {
@@ -32,11 +32,11 @@ public class Ship extends Element {
 		}
 		drawLife(g);
 		if (!isLive) {
-			g.drawImage(Window.shipExplotado, x, y, width, height, null);
+			g.drawImage(Window.shipExploited, x, y, width, height, null);
 		}
 
 		for (Bullet b : bullets) {
-			b.pinta(g);
+			b.paint(g);
 		}
 	}
 

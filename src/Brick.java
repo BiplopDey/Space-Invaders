@@ -15,7 +15,7 @@ public class Brick extends Element {
 	}
 
 	@Override
-	void pinta(Graphics g) {
+	void paint(Graphics g) {
 		
 		switch (lives) {// depending on life deteriorate
 		case 3:

@@ -22,7 +22,7 @@ public class Game {
 	Ship miShip;
 	Wave wave;
 	Ufo ufo;
-	Wall muros;
+	Wall wall;
 	final int stateMenu = 1, statePlay = 2, stateGameOver = 3;
 
 	Game(Window window) {
@@ -70,7 +70,7 @@ public class Game {
 
 			ferMoviments();
 			detectarXocs();
-			pintarPantalla();
+			paintrPantalla();
 			try {
 				Thread.sleep(100);
 			} catch (InterruptedException e) {
@@ -149,7 +149,7 @@ public class Game {
 		ufo = new Ufo(Window.WIDTH, 50, speedOvni, 50, 20);
 		wave = new Wave(100, numberUfo, speedOleadaInicial, 40, 30);
 		miShip = new Ship((int) (Window.WIDTH / 2), Window.HEIGHT - 70, speedShip, 50, 20);
-		muros = new Wall(50, 400, 0, 20, 20);
+		wall = new Wall(50, 400, 0, 20, 20);
 	}
 
 	void ferMoviments() {
@@ -200,9 +200,9 @@ public class Game {
 			}
 
 			if (alienBullet.y < Window.HEIGHT)
-				for (int j = 0; j < muros.dimLinea; j++) {// vs bottom line
-					if (muros.lineaAbajo[j].isLive && alienBullet.intersects(muros.lineaAbajo[j])) {
-						muros.lineaAbajo[j].substractLife();
+				for (int j = 0; j < wall.dimLinea; j++) {// vs bottom line
+					if (wall.lineaAbajo[j].isLive && alienBullet.intersects(wall.lineaAbajo[j])) {
+						wall.lineaAbajo[j].substractLife();
 						alienBullet.isLive = false;
 						break;
 					}
@@ -212,9 +212,9 @@ public class Game {
 	}
 
 	void bulletsVsMuros(Bullet bullet) {
-		for (int j = 0; j < muros.dim; j++) {
-			if (muros.brick[j].isLive && bullet.intersects(muros.brick[j])) {
-				muros.brick[j].substractLife();
+		for (int j = 0; j < wall.dim; j++) {
+			if (wall.brick[j].isLive && bullet.intersects(wall.brick[j])) {
+				wall.brick[j].substractLife();
 				bullet.isLive = false;
 				break;
 			}
@@ -228,16 +228,16 @@ public class Game {
 		g.drawString("HI-SCORE: " + Window.hiScore, (int) Window.WIDTH / 2 - 50, 50);
 	}
 
-	void pintarPantalla() {
+	void paintrPantalla() {
 		// erase screen
 		window.g.setColor(Color.BLACK);
 		window.g.fillRect(0, 0, Window.WIDTH, Window.HEIGHT);
 		// draw
 		drawScore(window.g);
-		miShip.pinta(window.g);
-		wave.pinta(window.g);
-		ufo.pinta(window.g);
-		muros.pinta(window.g);
+		miShip.paint(window.g);
+		wave.paint(window.g);
+		ufo.paint(window.g);
+		wall.paint(window.g);
 		window.repaint();// call paint()
 	}
 
