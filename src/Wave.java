@@ -11,7 +11,7 @@ public class Wave extends Element {
 	int filas = 5;
 	int columnas = 11;
 	int dim = filas * columnas;
-	int sign = +1;// startint direction 
+	int sign = +1;// starting direction 
 	Alien[] aliens;
 	ArrayList<Bullet> bullets = new ArrayList<Bullet>();
 

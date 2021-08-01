@@ -3,15 +3,14 @@ import java.awt.Graphics;
 import java.awt.Rectangle;
 
 public class Bullet extends Element {
+	
 	Bullet(int x, int y, int speed, int width, int height) {
 		super(x, y, speed, width, height);
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override
 	void move(int sign) {
 		y += sign * speed;
-		
 	}
 
 	@Override

@@ -64,7 +64,7 @@ public class Game {
 		inicialitzacio();
 		while (miShip.isLive && wave.alienExtremoAbajo() < Window.HEIGHT - 45) {
 
-			if (!wave.isLive) {// si se han matado todos los aliens de la wave, comienza otra wave
+			if (!wave.isLive) {// If all the aliens in the wave have been killed, another wave begins
 				otraOleada();
 			}
 
@@ -122,7 +122,7 @@ public class Game {
 		window.g.drawImage(Window.gameOver, (int) Window.WIDTH / 4, (int) Window.HEIGHT / 4, (int) Window.WIDTH / 2,
 				(int) Window.HEIGHT / 2, null);
 
-		if (miShip.points == Window.hiScore) {// si se supera el hi-score
+		if (miShip.points == Window.hiScore) {// if the hi-score is exceeded
 			window.g.setColor(Color.WHITE);
 			window.g.setFont(new Font("Se rif", Font.PLAIN, 16));
 			window.g.drawString("CONGRAJULATIONS NEW HIGH SCORE: " + miShip.points, (int) Window.WIDTH / 4 + 40,
@@ -160,7 +160,7 @@ public class Game {
 
 	void detectarXocs() {
 		// detect collisions between bullets of my ship and other things
-		for (Bullet miBullet : miShip.bullets) {// my bullets vs todos
+		for (Bullet miBullet : miShip.bullets) {// my bullets vs everyone
 
 			for (int j = 0; j < wave.dim; j++) {// vs aliens
 				if (wave.aliens[j].isLive && miBullet.intersects(wave.aliens[j])) {

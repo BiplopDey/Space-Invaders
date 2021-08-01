@@ -49,7 +49,7 @@ public class Window extends Frame implements WindowListener, KeyListener {
 		setVisible(true);
 
 		im = createImage(WIDTH, HEIGHT);
-		g = im.getGraphics();// para pintar en la memoria
+		g = im.getGraphics();// to paint in memory
 
 		game = new Game(this);
 		game.run();
@@ -77,7 +77,7 @@ public class Window extends Frame implements WindowListener, KeyListener {
 		g.drawImage(im, 0, 0, null);
 	}
 
-	public void update(Graphics g) {// sirve para mejorar los graficos
+	public void update(Graphics g) {// to improve graphics
 		paint(g);
 	}
 

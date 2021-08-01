@@ -6,7 +6,6 @@ public class Brick extends Element {
 
 	Brick(int x, int y, int speed, int width, int height) {
 		super(x, y, speed, width, height);
-		// TODO Auto-generated constructor stub
 		lives = 3;
 	}
 
@@ -17,8 +16,8 @@ public class Brick extends Element {
 
 	@Override
 	void pinta(Graphics g) {
-		// en funcion de vida detiorar
-		switch (lives) {
+		
+		switch (lives) {// depending on life deteriorate
 		case 3:
 			g.setColor(Color.GREEN);
 			g.fillRect(x, y, width, height);
