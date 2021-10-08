@@ -1,5 +1,6 @@
 # SPACE INVADERS
 
+Project of Avanced Programming class.
 Game written in Java and developed with Eclipse IDE.
 
 ## Demo
