@@ -19,11 +19,14 @@ public class Window extends Frame implements WindowListener, KeyListener {
 	final int right = 39;
 	final int space = 32;
 	static int hiScore;
+	final String imageUrl = "assets/image/";
+	final String soundUrl = "assets/sound/";
+	
 	static BufferedImage start, type1open, type2open, type3open, type1close, type2close, type3close,
 			explosion, explosionOvni, gameOver, ufo, shipExploited, brickPhase1, brickPhase2, brickPhase3, ship;
 	static Clip shoot, crash;
 	static Boolean isClickedLeft = false, isClickedRight = false, isClickedSpace = false;
-	static String hiScoreTxt = "HiScore.txt";
+	static String hiScoreTxt = "assets/db/HiScore.txt";
 	Game game;
 
 	static int WIDTH = 800, HEIGHT = 600;
@@ -83,11 +86,11 @@ public class Window extends Frame implements WindowListener, KeyListener {
 
 	void loadSounds() {
 		try {
-			AudioInputStream audioInShoot = AudioSystem.getAudioInputStream(new File("shoot.wav"));
+			AudioInputStream audioInShoot = AudioSystem.getAudioInputStream(new File(soundUrl+"shoot.wav"));
 			shoot = AudioSystem.getClip();
 			shoot.open(audioInShoot);
 
-			AudioInputStream audioInCrash = AudioSystem.getAudioInputStream(new File("invaderkilled.wav"));
+			AudioInputStream audioInCrash = AudioSystem.getAudioInputStream(new File(soundUrl+"invaderkilled.wav"));
 			crash = AudioSystem.getClip();
 			crash.open(audioInCrash);
 
@@ -96,23 +99,24 @@ public class Window extends Frame implements WindowListener, KeyListener {
 	}
 
 	void loadImages() {
+		
 		try {
-			start = ImageIO.read(new File("ImagenInicio.png"));
-			ship = ImageIO.read(new File("ship.png"));
-			gameOver = ImageIO.read(new File("gameover.png"));
-			explosion = ImageIO.read(new File("explosion.png"));
-			explosionOvni = ImageIO.read(new File("explosionOvni.png"));
-			shipExploited = ImageIO.read(new File("naveExplotado.png"));
-			ufo = ImageIO.read(new File("ovni.png"));
-			type1open = ImageIO.read(new File("tipo1abierto.png"));
-			type2open = ImageIO.read(new File("tipo2abierto.png"));
-			type3open = ImageIO.read(new File("tipo3abierto.png"));
-			type1close = ImageIO.read(new File("tipo1cerrado.png"));
-			type2close = ImageIO.read(new File("tipo2cerrado.png"));
-			type3close = ImageIO.read(new File("tipo3cerrado.png"));
-			brickPhase1 = ImageIO.read(new File("bloqueFase1.png"));
-			brickPhase2 = ImageIO.read(new File("bloqueFase2.png"));
-			brickPhase3 = ImageIO.read(new File("bloqueFase3.png"));
+			start = ImageIO.read(new File(imageUrl+"ImagenInicio.png"));
+			ship = ImageIO.read(new File(imageUrl+"ship.png"));
+			gameOver = ImageIO.read(new File(imageUrl+"gameover.png"));
+			explosion = ImageIO.read(new File(imageUrl+"explosion.png"));
+			explosionOvni = ImageIO.read(new File(imageUrl+"explosionOvni.png"));
+			shipExploited = ImageIO.read(new File(imageUrl+"naveExplotado.png"));
+			ufo = ImageIO.read(new File(imageUrl+"ovni.png"));
+			type1open = ImageIO.read(new File(imageUrl+"tipo1abierto.png"));
+			type2open = ImageIO.read(new File(imageUrl+"tipo2abierto.png"));
+			type3open = ImageIO.read(new File(imageUrl+"tipo3abierto.png"));
+			type1close = ImageIO.read(new File(imageUrl+"tipo1cerrado.png"));
+			type2close = ImageIO.read(new File(imageUrl+"tipo2cerrado.png"));
+			type3close = ImageIO.read(new File(imageUrl+"tipo3cerrado.png"));
+			brickPhase1 = ImageIO.read(new File(imageUrl+"bloqueFase1.png"));
+			brickPhase2 = ImageIO.read(new File(imageUrl+"bloqueFase2.png"));
+			brickPhase3 = ImageIO.read(new File(imageUrl+"bloqueFase3.png"));
 		} catch (IOException ex) {
 		}
 	}

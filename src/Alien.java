@@ -28,8 +28,8 @@ public class Alien extends Element {
 	}
 
 	@Override
-	void move(int sign) {
-		x += sign * speed;
+	void move(int direction) {
+		x += direction * speed;
 		typeMovimiento = !typeMovimiento;
 	}
 
